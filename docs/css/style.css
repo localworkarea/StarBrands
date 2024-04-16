@@ -414,6 +414,36 @@ h6 {
 .indicators__txt {
   font-weight: 400
 }
+.about__body {
+  border: .0625rem solid #000
+}
+.video-youtube__body {
+  position: relative;
+  background-color: #000
+}
+.video-youtube__body iframe {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover
+}
+.video-youtube__button {
+  overflow: hidden;
+  position: relative;
+  z-index: 0
+}
+.video-youtube__button::before {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  background-image: url(../img/icons/youtube-color.svg);
+  background-repeat: no-repeat;
+  background-size: contain
+}
 .swiper {
   overflow: hidden
 }
@@ -496,6 +526,17 @@ h6 {
     justify-content: space-between
   }
 }
+@media (min-width:48.06125em) {
+  .video-youtube__body {
+    aspect-ratio: 19/9
+  }
+  .video-youtube__body iframe {
+    aspect-ratio: 19/9
+  }
+  .video-youtube__button img {
+    aspect-ratio: 19/9
+  }
+}
 @media (min-width:56.31125em) {
   .header__link {
     border-right: .0625rem solid #000;
@@ -550,10 +591,12 @@ h6 {
   [class*=__container] {
     max-width: 110rem
   }
+  .about,
   .companies,
   .indicators {
     padding-top: 6.25rem
   }
+  .about,
   .companies,
   .indicators {
     padding-bottom: 6.25rem
@@ -595,6 +638,9 @@ h6 {
   }
   .menu__lng {
     font-size: 1.125rem
+  }
+  .hero {
+    padding-top: 6.25rem
   }
   .companies__title {
     font-size: 8rem
@@ -644,15 +690,26 @@ h6 {
   .indicators__txt {
     font-size: 1.875rem
   }
+  .about__title {
+    margin-bottom: 2.4375rem
+  }
+  .video-youtube__button::before {
+    width: 14.125rem
+  }
+  .video-youtube__button::before {
+    height: 9.6875rem
+  }
 }
 @media (max-width:85.43625em) {
   [class*=__container] {
     max-width: 77.5rem
   }
+  .about,
   .companies,
   .indicators {
     padding-top: 4.375rem
   }
+  .about,
   .companies,
   .indicators {
     padding-bottom: 4.375rem
@@ -677,6 +734,9 @@ h6 {
   }
   .menu__lng {
     font-size: 1rem
+  }
+  .hero {
+    padding-top: 3.75rem
   }
   .companies__title:not(:last-child) {
     margin-bottom: 1.25rem
@@ -722,6 +782,9 @@ h6 {
   }
   .indicators__txt {
     font-size: 1.25rem
+  }
+  .about__title {
+    margin-bottom: 1.25rem
   }
 }
 @media (max-width:81.31125em) {
@@ -898,6 +961,17 @@ h6 {
     cursor: default
   }
 }
+@media (max-width:48.06125em) {
+  .video-youtube__body {
+    aspect-ratio: 16/9
+  }
+  .video-youtube__body iframe {
+    aspect-ratio: 16/9
+  }
+  .video-youtube__button img {
+    aspect-ratio: 16/9
+  }
+}
 @media (max-width:46.93625em) {
   .indicators__body {
     display: grid;
@@ -917,6 +991,12 @@ h6 {
   }
   .companies__slide.swiper-slide-active .slide-companies__info {
     opacity: 1
+  }
+  .video-youtube__button::before {
+    width: 3.75rem
+  }
+  .video-youtube__button::before {
+    height: 3.0625rem
   }
 }
 @media (max-width:23.49875em) {
@@ -960,24 +1040,28 @@ h6 {
     }
   }
   @supports (padding-top:clamp(4.375rem ,-0.2597103179rem + 5.4247585982vw ,6.25rem)) {
+    .about,
     .companies,
     .indicators {
       padding-top: clamp(4.375rem ,-.2597103179rem + 5.4247585982vw ,6.25rem)
     }
   }
   @supports not (padding-top:clamp(4.375rem ,-0.2597103179rem + 5.4247585982vw ,6.25rem)) {
+    .about,
     .companies,
     .indicators {
       padding-top: calc(4.375rem + 1.875 * (100vw - 85.43625rem)/ 34.56375)
     }
   }
   @supports (padding-bottom:clamp(4.375rem ,-0.2597103179rem + 5.4247585982vw ,6.25rem)) {
+    .about,
     .companies,
     .indicators {
       padding-bottom: clamp(4.375rem ,-.2597103179rem + 5.4247585982vw ,6.25rem)
     }
   }
   @supports not (padding-bottom:clamp(4.375rem ,-0.2597103179rem + 5.4247585982vw ,6.25rem)) {
+    .about,
     .companies,
     .indicators {
       padding-bottom: calc(4.375rem + 1.875 * (100vw - 85.43625rem)/ 34.56375)
@@ -1051,6 +1135,16 @@ h6 {
   @supports not (font-size:clamp(1rem ,0.6910193121rem + 0.3616505732vw ,1.125rem)) {
     .menu__lng {
       font-size: calc(1rem + .125 * (100vw - 85.43625rem)/ 34.56375)
+    }
+  }
+  @supports (padding-top:clamp(3.75rem ,-2.4296137572rem + 7.2330114643vw ,6.25rem)) {
+    .hero {
+      padding-top: clamp(3.75rem ,-2.4296137572rem + 7.2330114643vw ,6.25rem)
+    }
+  }
+  @supports not (padding-top:clamp(3.75rem ,-2.4296137572rem + 7.2330114643vw ,6.25rem)) {
+    .hero {
+      padding-top: calc(3.75rem + 2.5 * (100vw - 85.43625rem)/ 34.56375)
     }
   }
   @supports (font-size:clamp(4.375rem ,-4.5854399479rem + 10.4878666233vw ,8rem)) {
@@ -1213,6 +1307,36 @@ h6 {
       font-size: calc(1.25rem + .625 * (100vw - 85.43625rem)/ 34.56375)
     }
   }
+  @supports (margin-bottom:clamp(1.25rem ,-1.6853165347rem + 3.4356804456vw ,2.4375rem)) {
+    .about__title {
+      margin-bottom: clamp(1.25rem ,-1.6853165347rem + 3.4356804456vw ,2.4375rem)
+    }
+  }
+  @supports not (margin-bottom:clamp(1.25rem ,-1.6853165347rem + 3.4356804456vw ,2.4375rem)) {
+    .about__title {
+      margin-bottom: calc(1.25rem + 1.1875 * (100vw - 85.43625rem)/ 34.56375)
+    }
+  }
+  @supports (width:clamp(9.375rem ,-2.3662661387rem + 13.7427217822vw ,14.125rem)) {
+    .video-youtube__button::before {
+      width: clamp(9.375rem ,-2.3662661387rem + 13.7427217822vw ,14.125rem)
+    }
+  }
+  @supports not (width:clamp(9.375rem ,-2.3662661387rem + 13.7427217822vw ,14.125rem)) {
+    .video-youtube__button::before {
+      width: calc(9.375rem + 4.75 * (100vw - 85.43625rem)/ 34.56375)
+    }
+  }
+  @supports (height:clamp(6.9375rem ,0.1399248671rem + 7.9563126108vw ,9.6875rem)) {
+    .video-youtube__button::before {
+      height: clamp(6.9375rem ,.1399248671rem + 7.9563126108vw ,9.6875rem)
+    }
+  }
+  @supports not (height:clamp(6.9375rem ,0.1399248671rem + 7.9563126108vw ,9.6875rem)) {
+    .video-youtube__button::before {
+      height: calc(6.9375rem + 2.75 * (100vw - 85.43625rem)/ 34.56375)
+    }
+  }
 }
 @media (min-width:8.56125em) and (max-width:120em) {
   @supports (width:clamp(1.875rem ,1.8269845543rem + 0.5608462048vw ,2.5rem)) {
@@ -1286,6 +1410,26 @@ h6 {
   @supports not (font-size:clamp(3.75rem ,3.4107082393rem + 1.1286681716vw ,4.375rem)) {
     .companies__title {
       font-size: calc(3.75rem + .625 * (100vw - 30.06125rem)/ 55.375)
+    }
+  }
+  @supports (width:clamp(3.75rem ,0.6963741535rem + 10.158013544vw ,9.375rem)) {
+    .video-youtube__button::before {
+      width: clamp(3.75rem ,.6963741535rem + 10.158013544vw ,9.375rem)
+    }
+  }
+  @supports not (width:clamp(3.75rem ,0.6963741535rem + 10.158013544vw ,9.375rem)) {
+    .video-youtube__button::before {
+      width: calc(3.75rem + 5.625 * (100vw - 30.06125rem)/ 55.375)
+    }
+  }
+  @supports (height:clamp(3.0625rem ,0.9588910835rem + 6.9977426637vw ,6.9375rem)) {
+    .video-youtube__button::before {
+      height: clamp(3.0625rem ,.9588910835rem + 6.9977426637vw ,6.9375rem)
+    }
+  }
+  @supports not (height:clamp(3.0625rem ,0.9588910835rem + 6.9977426637vw ,6.9375rem)) {
+    .video-youtube__button::before {
+      height: calc(3.0625rem + 3.875 * (100vw - 30.06125rem)/ 55.375)
     }
   }
 }

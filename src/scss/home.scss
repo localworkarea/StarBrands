@@ -1,5 +1,6 @@
 .hero {
   overflow: hidden;
+  @include adaptiveValue("padding-top", 100, 60,0,1920,1366.98);
   // .hero__video
   &__video {
     &.video-hero-pc {
@@ -250,3 +251,80 @@
   }
 }
 
+
+// ABOUT SECTION ==============================================================
+.about {
+  @extend %pddSection;
+  // .about__container
+  &__container {
+  }
+  // .about__title
+  &__title {
+    @include adaptiveValue("margin-bottom", 39, 20,0,1920,1366.98);
+  }
+  // .about__body
+  &__body {
+    border: toRem(1) solid #000;
+  }
+  // .about__video-btn
+  &__video-btn {
+  }
+  // .about__poster
+  &__poster {
+  }
+}
+
+
+.video-youtube {
+  // .video-youtube__body
+  &__body {
+    position: relative;
+    background-color: #000;
+    @media (min-width:$mobile){
+      aspect-ratio: 19/9;
+    }
+    @media (max-width:$mobile){
+      aspect-ratio: 16/9; 
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @media (min-width:$mobile){
+        aspect-ratio: 19/9;
+      }
+      @media (max-width:$mobile){
+        aspect-ratio: 16/9; 
+      }
+    }
+  }
+  // .video-youtube__button
+  &__button {
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    &::before {
+      content: '';
+      position: absolute;
+      pointer-events: none;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-image:url('../img/icons/youtube-color.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      @include adaptiveValue("width", 226, 150,2,1920,1366.98);
+      @include adaptiveValue("width", 150, 60,3,1366.98,480.98);
+      @include adaptiveValue("height", 155, 111,2,1920,1366.98);
+      @include adaptiveValue("height", 111, 49,3,1366.98,480.98);
+    }
+    img {
+      @media (min-width:$mobile){
+        aspect-ratio: 19/9;
+      }
+      @media (max-width:$mobile){
+        aspect-ratio: 16/9; 
+      }
+    }
+  }
+}
