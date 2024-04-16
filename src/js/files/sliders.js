@@ -8,7 +8,7 @@
 // При необхідності підключаємо додаткові модулі слайдера, вказуючи їх у {} через кому
 // Приклад: { Navigation, Autoplay }
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Scrollbar } from 'swiper/modules';
 /*
 Основні модулі слайдера:
 Navigation, Pagination, Autoplay, 
@@ -27,7 +27,7 @@ import "../../scss/base/swiper.scss";
 function initSliders() {
 	if (document.querySelector('.companies__slider')) {
 		new Swiper('.companies__slider', { 
-			modules: [Navigation, Pagination],
+			modules: [Navigation, Scrollbar],
 			observer: true,
 			observeParents: true,
 			slidesPerView: "auto",
@@ -44,10 +44,9 @@ function initSliders() {
 			loopAdditionalSlides: 5,
 			//preloadImages: false,
 			//lazy: true,
-
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true,
+			scrollbar: {
+				el: '.swiper-scrollbar',
+				draggable: true,
 			},
 
 			navigation: {

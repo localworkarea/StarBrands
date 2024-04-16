@@ -15,7 +15,7 @@
 	&__container {
     position: relative;
     .swiper-button {
-      bottom: toRem(130); 
+      bottom: toRem(150); 
     }
 	}
 	// .companies__title
@@ -42,7 +42,7 @@
 	}
 	// .companies__body
 	&__body {
-    @include adaptiveValue("margin-top", 50, 30,0,1920,1366.98);
+    @include adaptiveValue("margin-top", 50, 20,0,1920,1366.98);
     position: relative;
     @media (min-width:$mobileSmall){
       overflow: hidden;
@@ -56,8 +56,8 @@
     width: toRem(290);
     margin-left: auto;
     margin-right: auto;
-    .swiper-pagination {
-    
+    .swiper-scrollbar {
+      @include adaptiveValue("margin-top", 40, 20,0,1920,1366.98);
     }
   }
   // .companies__wrapper
@@ -104,7 +104,7 @@
       @include adaptiveValue("padding-top", 16,10,0,1920,1366.98);
       @include adaptiveValue("padding-left", 16,10,0,1920,1366.98);
       @include adaptiveValue("padding-right", 16,10,0,1920,1366.98);
-      @include adaptiveValue("padding-bottom", 25,20,0,1920,1366.98);
+      @include adaptiveValue("padding-bottom", 30,25,0,1920,1366.98);
       clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 54% 85%, 50% 100%, 46% 85%, 0 85%);
       text-align: center;
       color: #fff;
@@ -166,47 +166,87 @@
   }
 }
 
-.swiper-button {
-  position: absolute;
-  z-index: 10;
-  @include adaptiveValue("width", 40, 30,0,1920,136.98);
-  @include adaptiveValue("height", 40, 30,0,1920,136.98);
-  border: toRem(1) solid $mainColor;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color .3s ease;
-  @media (any-hover: hover){
-    &:hover{
-      background-color: $mainColor;
-      svg {
-        path {
-          stroke: #fff;
-        }
+
+// INDICATORS SECTION ==============================================================
+.indicators {
+  @extend %pddSection;
+  position: relative;
+  overflow: hidden;
+  // .indicators__bg
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    z-index: 0;
+  }
+  // .indicators__container
+  &__container {
+    position: relative;
+    z-index: 1;
+  }
+  // .indicators__title
+  &__title {
+    color: #fff;
+    @include adaptiveValue("margin-bottom", 50, 45,0,1920,1366.98);
+  }
+  // .indicators__body
+  &__body {
+    @media (min-width:toEm(750.98)){
+      display: flex;
+      justify-content: space-between;
+    }
+    @media (max-width: toEm(750.98)){
+      display: grid;
+      grid-template-columns: auto auto;
+      column-gap: toRem(20);
+      row-gap: toRem(80);
+    }
+    @media (max-width: toEm(375.98)){
+      column-gap: toRem(10);
+      row-gap: toRem(60);
+    }
+  }
+  // .indicators__item
+  &__item {
+    color: #fff;
+    text-align: center;
+    position: relative;
+    &::before {
+      content:'';
+      position: absolute;
+      z-index: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-52%, -48%);
+      background-image:url('../img/icons/dec-qube.svg');
+      @include adaptiveValue("width", 217, 150,0,1920,1366.98);
+      @include adaptiveValue("height", 217, 150,0,1920,1366.98);
+      background-repeat: no-repeat;
+      background-size: contain;
+      @media (max-width: toEm(375.98)){
+        width: toRem(140) !important;
+        height: toRem(140) !important;
       }
     }
   }
-  svg {
-    path {
-      transition: stroke .3s ease;
+  &__count,
+  &__txt {
+    position: relative;
+    z-index: 1;
+  }
+  // .indicators__count
+  &__count {
+    font-weight: 700;
+    @include adaptiveValue("font-size", 144, 80,0,1920,1366.98);
+    @media (max-width: toEm(360.98)){
+        font-size: toRem(70) !important;
     }
   }
-  &.swiper-button-prev {
-    @media (min-width:toEm(1300.98)){
-      left: 0;
-    }
-    @media (max-width: toEm(1300.98)){
-      left: toRem(20);
-    }
-  }
-  &.swiper-button-next {
-    @media (min-width:toEm(1300.98)){
-      right: 0;
-    }
-    @media (max-width: toEm(1300.98)){
-      right: toRem(20);
-    }
+  // .indicators__txt
+  &__txt {
+    font-weight: 400;
+    @include adaptiveValue("font-size", 30, 20,0,1920,1366.98);
   }
 }
-
 

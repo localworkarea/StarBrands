@@ -36,3 +36,65 @@
   @include adaptiveValue("padding-top", 100, 70,0,1920,1366.98);
   @include adaptiveValue("padding-bottom", 100, 70,0,1920,1366.98);
 }
+
+.title-hero {
+  font-weight: 700;
+  line-height: 1.2;
+  @include adaptiveValue("font-size", 48, 36,0,1920,1366.98);
+  color: $blueDark;
+}
+
+
+.swiper-button {
+  position: absolute;
+  z-index: 10;
+  @include adaptiveValue("width", 40, 30,0,1920,136.98);
+  @include adaptiveValue("height", 40, 30,0,1920,136.98);
+  border: toRem(1) solid $mainColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .3s ease;
+  background-color: #fff;
+  @media (any-hover: hover){
+    &:hover{
+      background-color: $mainColor;
+      svg {
+        path {
+          stroke: #fff;
+        }
+      }
+    }
+  }
+  svg {
+    path {
+      transition: stroke .3s ease;
+    }
+  }
+  &.swiper-button-prev {
+    @media (min-width:toEm(1300.98)){
+      left: 0;
+    }
+    @media (max-width: toEm(1300.98)){
+      left: toRem(20);
+    }
+  }
+  &.swiper-button-next {
+    @media (min-width:toEm(1300.98)){
+      right: 0;
+    }
+    @media (max-width: toEm(1300.98)){
+      right: toRem(20);
+    }
+  }
+}
+
+.swiper-scrollbar {
+  height: toRem(2);
+  background-color: rgba(0, 26, 111, 0.1);
+  .swiper-scrollbar-drag {
+    background-color: rgba(0, 26, 111, 1);
+    height: toRem(2);
+  }
+}
+
