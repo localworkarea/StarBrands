@@ -63,6 +63,9 @@
   @include adaptiveValue("padding-bottom", 100, 70,0,1920,1366.98);
 }
 
+%pddTopHero {
+  @include adaptiveValue("padding-top", 100, 60,0,1920,1366.98);
+}
 
 .btn {
   display: flex;
@@ -111,6 +114,15 @@
   font-weight: 700;
   @include adaptiveValue("font-size", 48, 36,0,1920,1366.98);
   color: $blueDark;
+}
+
+.title-head {
+  font-weight: 800;
+  @include adaptiveValue("font-size", 64, 36,0,1920,1366.98);
+  color: #fff;
+  &:not(:last-child) {
+    @include adaptiveValue("margin-bottom", 40, 10,0,1920,1366.98);
+  }
 }
 
 .bg-blue-light {
@@ -286,5 +298,40 @@
   &__txt {
     font-size: toRem(16);
     font-weight: 400;
+  }
+}
+
+// хлебные крошки =========================
+.head-pg {
+  // .head-pg__list
+  &__list {
+    padding-top: toRem(20);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: toRem(20);
+  }
+  // .head-pg__item
+  &__item {
+    list-style: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: toRem(14);
+    &:not(:last-child) {
+      margin-right: toRem(4);
+    }
+    a {
+      color: rgba(255, 255, 255, 0.5);
+      transition: color .3s ease;
+      @media (any-hover: hover){
+        &:hover{
+          color: rgba(255, 255, 255, 1);
+        }
+      }
+      position: relative;
+      &::after {
+        content: '/';
+        margin-left: toRem(2);
+      }
+    }
   }
 }

@@ -7,9 +7,433 @@
 		<div class="wrapper pg-vacancy">
 			@@include('html/_header.htm',{})
 			<main class="page">
+				<section class="vacancy bg-blue-light">
+					<div class="vacancy__head head-vacancy">
+						<img class="head-vacancy__bg ibg" src="@img/head-bg-01.jpg" width="1920" height="414" alt="бекграунд">
+						<div class="head-vacancy__container">
+							<ol itemscope itemtype="https://schema.org/BreadcrumbList" class="head-pg__list">
+								<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="head-pg__item">
+									<a itemprop="item"  href="index.html">
+										<span itemprop="name">Головна</span>
+									</a>
+									<meta itemprop="position" content="1" />
+								</li>
+								<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="head-pg__item">
+									<span itemprop="name">Вакансії</span>
+									<meta itemprop="position" content="2" />
+								</li>
+							</ol>
+							<h1 class="head-vacancy__title title-head">
+								Вакансії
+							</h1>
+							<div class="head-vacancy__filter filter">
+								<div class="filter__slider swiper">
+									<div class="filter__wrapper swiper-wrapper">
+										<div class="filter__slide swiper-slide">
+											<button data-filter="*" class="filter__item item-all active" type="button" aria-label="кнопка фільтрів">
+												<img class="item-all__burger" src="@img/icons/burger.svg" width="34" height="30" alt="icon burger">
+												<span class="item-all__txt">Всі вакансії</span>
+											</button>
+										</div>
+										<div class="filter__slide swiper-slide">
+											<button data-filter="snack" class="filter__item" type="button" aria-label="кнопка фільтрів">
+												<img class="ibg ibg--contain" src="@img/vacancy/LogoSnackProduction.png" width="250" height="83" alt="лого SnackProduction">
+											</button>
+										</div>
+										<div class="filter__slide swiper-slide">
+											<button data-filter="eurogroup" class="filter__item" type="button" aria-label="кнопка фільтрів">
+												<img class="ibg ibg--contain" src="@img/vacancy/LogoEurogrouptrans.png" width="250" height="83" alt="лого Eurogrouptrans">
+											</button>
+										</div>
+										<div class="filter__slide swiper-slide">
+											<button data-filter="starbrands" class="filter__item" type="button" aria-label="кнопка фільтрів">
+												<img class="ibg ibg--contain" src="@img/vacancy/LogoStarBrands.svg" width="250" height="83" alt="лого StarBrands">
+											</button>
+										</div>
+										<div class="filter__slide swiper-slide">
+											<button data-filter="foodsales" class="filter__item" type="button" aria-label="кнопка фільтрів">
+												<img class="ibg ibg--contain" src="@img/vacancy/LogoFoodSales.png" width="250" height="83" alt="лого FoodSales">
+											</button>
+										</div>
+										<div class="filter__slide swiper-slide">
+											<button data-filter="crispytation" class="filter__item" type="button" aria-label="кнопка фільтрів">
+												<img class="ibg ibg--contain" src="@img/vacancy/LogoCrispytation.svg" width="250" height="83" alt="лого Crispytation">
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="vacancy__container">
+						<ul data-iso-items class="vacancy__body">
+							<li data-iso-item data-filter="snack" class="vacancy__item item-vacancy">
+								<p class="item-vacancy__position">Головний інженер</p>
+								<div class="item-vacancy__place">
+									<p class="item-vacancy__company">
+										<img src="@img/icons/office.svg" width="35" height="35" alt="icon office">
+										<span>Snack Production</span>
+									</p>
+									<p class="item-vacancy__location">
+										<img src="@img/icons/location.svg" width="35" height="35" alt="icon location">
+										<span>Івано-Франківськ</span>
+									</p>
+								</div>
+								<div class="item-vacancy__about">
+									<div class="item-vacancy__block">
+										<p class="item-vacancy__title">Вимоги:</p>
+										<ul class="item-vacancy__list">
+											<li class="item-vacancy__item">
+												Готовність до частих відряджень по Україні (від 15 днів на місяць)
+											</li>
+											<li class="item-vacancy__item">
+												Досвід работи від 1 року на позиції супервайзера, аудитора торгових точок, регіонального менеджера та ін. (ринок FMCG);
+											</li>
+											<li class="item-vacancy__item">
+												Володіння пакетом програм MS Office (Exсеl, PowerPoint), бажано — знання програми 1С;
+											</li>
+											<li class="item-vacancy__item">
+												Готовність до частих відряджень по Україні (від 15 днів на місяць)
+											</li>
+										</ul>
+									</div>
+									<div class="item-vacancy__block">
+										<p class="item-vacancy__title">Обов'язки:</p>
+										<ul class="item-vacancy__list">
+											<li class="item-vacancy__item">
+												Технічне та методичне керівництво підлеглими підрозділами
+											</li>
+											<li class="item-vacancy__item">
+												Технічне та методичне керівництво підлеглими підрозділами
+											</li>
+											<li class="item-vacancy__item">
+												Розробка заходів щодо економії ресурсів, модернізації, автоматизації технічних процесів та їх впровадження
+											</li>
+											<li class="item-vacancy__item">
+												Контроль за правильністю експлуатації обладнання технічних споруд та установок
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="item-vacancy__links">
+									<a href="#" class="item-vacancy__link btn btn--01">
+										<span>Детальніше</span>
+										<svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M1 1.5L8 8L1 14.5" stroke="#000" stroke-linecap="square"/>
+										</svg>
+									</a>
+									<a href="#"  data-popup="#popup-vacancy" class="item-vacancy__link btn btn--02">
+										<span>Відгукнутися</span>
+									</a>
+								</div>
+							</li>
+							<li data-iso-item data-filter="eurogroup" class="vacancy__item item-vacancy">
+								<p class="item-vacancy__position">Експедитор</p>
+								<div class="item-vacancy__place">
+									<p class="item-vacancy__company">
+										<img src="@img/icons/office.svg" width="35" height="35" alt="icon office">
+										<span>Eurogroup Trans</span>
+									</p>
+									<p class="item-vacancy__location">
+										<img src="@img/icons/location.svg" width="35" height="35" alt="icon location">
+										<span>Львів</span>
+									</p>
+								</div>
+								<div class="item-vacancy__about">
+									<div class="item-vacancy__block">
+										<p class="item-vacancy__title">Вимоги:</p>
+										<ul class="item-vacancy__list">
+											<li class="item-vacancy__item">
+												Готовність до частих відряджень по Україні (від 15 днів на місяць)
+											</li>
+											<li class="item-vacancy__item">
+												Досвід работи від 1 року на позиції супервайзера, аудитора торгових точок, регіонального менеджера та ін. (ринок FMCG);
+											</li>
+											<li class="item-vacancy__item">
+												Володіння пакетом програм MS Office (Exсеl, PowerPoint), бажано — знання програми 1С;
+											</li>
+											<li class="item-vacancy__item">
+												Готовність до частих відряджень по Україні (від 15 днів на місяць)
+											</li>
+										</ul>
+									</div>
+									<div class="item-vacancy__block">
+										<p class="item-vacancy__title">Обов'язки:</p>
+										<ul class="item-vacancy__list">
+											<li class="item-vacancy__item">
+												Технічне та методичне керівництво підлеглими підрозділами
+											</li>
+											<li class="item-vacancy__item">
+												Технічне та методичне керівництво підлеглими підрозділами
+											</li>
+											<li class="item-vacancy__item">
+												Розробка заходів щодо економії ресурсів, модернізації, автоматизації технічних процесів та їх впровадження
+											</li>
+											<li class="item-vacancy__item">
+												Контроль за правильністю експлуатації обладнання технічних споруд та установок
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="item-vacancy__links">
+									<a href="#" class="item-vacancy__link btn btn--01">
+										<span>Детальніше</span>
+										<svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M1 1.5L8 8L1 14.5" stroke="#000" stroke-linecap="square"/>
+										</svg>
+									</a>
+									<a href="#"  data-popup="#popup-vacancy" class="item-vacancy__link btn btn--02">
+										<span>Відгукнутися</span>
+									</a>
+								</div>
+							</li>
+							<li data-iso-item data-filter="snack" class="vacancy__item item-vacancy">
+								<p class="item-vacancy__position">Аудитор торгових точок</p>
+								<div class="item-vacancy__place">
+									<p class="item-vacancy__company">
+										<img src="@img/icons/office.svg" width="35" height="35" alt="icon office">
+										<span>Snack Production</span>
+									</p>
+									<p class="item-vacancy__location">
+										<img src="@img/icons/location.svg" width="35" height="35" alt="icon location">
+										<span>Київ</span>
+									</p>
+								</div>
+								<div class="item-vacancy__about">
+									<div class="item-vacancy__block">
+										<p class="item-vacancy__title">Вимоги:</p>
+										<ul class="item-vacancy__list">
+											<li class="item-vacancy__item">
+												Готовність до частих відряджень по Україні (від 15 днів на місяць)
+											</li>
+											<li class="item-vacancy__item">
+												Досвід работи від 1 року на позиції супервайзера, аудитора торгових точок, регіонального менеджера та ін. (ринок FMCG);
+											</li>
+											<li class="item-vacancy__item">
+												Володіння пакетом програм MS Office (Exсеl, PowerPoint), бажано — знання програми 1С;
+											</li>
+											<li class="item-vacancy__item">
+												Готовність до частих відряджень по Україні (від 15 днів на місяць)
+											</li>
+										</ul>
+									</div>
+									<div class="item-vacancy__block">
+										<p class="item-vacancy__title">Обов'язки:</p>
+										<ul class="item-vacancy__list">
+											<li class="item-vacancy__item">
+												Технічне та методичне керівництво підлеглими підрозділами
+											</li>
+											<li class="item-vacancy__item">
+												Технічне та методичне керівництво підлеглими підрозділами
+											</li>
+											<li class="item-vacancy__item">
+												Розробка заходів щодо економії ресурсів, модернізації, автоматизації технічних процесів та їх впровадження
+											</li>
+											<li class="item-vacancy__item">
+												Контроль за правильністю експлуатації обладнання технічних споруд та установок
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="item-vacancy__links">
+									<a href="#" class="item-vacancy__link btn btn--01">
+										<span>Детальніше</span>
+										<svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M1 1.5L8 8L1 14.5" stroke="#000" stroke-linecap="square"/>
+										</svg>
+									</a>
+									<a href="#"  data-popup="#popup-vacancy" class="item-vacancy__link btn btn--02">
+										<span>Відгукнутися</span>
+									</a>
+								</div>
+							</li>
+							<li data-iso-item data-filter="starbrands" class="vacancy__item item-vacancy">
+								<p class="item-vacancy__position">Бухгалтер з первинної документації</p>
+								<div class="item-vacancy__place">
+									<p class="item-vacancy__company">
+										<img src="@img/icons/office.svg" width="35" height="35" alt="icon office">
+										<span>Star Brands</span>
+									</p>
+									<p class="item-vacancy__location">
+										<img src="@img/icons/location.svg" width="35" height="35" alt="icon location">
+										<span>Дніпро</span>
+									</p>
+								</div>
+								<div class="item-vacancy__about">
+									<div class="item-vacancy__block">
+										<p class="item-vacancy__title">Вимоги:</p>
+										<ul class="item-vacancy__list">
+											<li class="item-vacancy__item">
+												Готовність до частих відряджень по Україні (від 15 днів на місяць)
+											</li>
+											<li class="item-vacancy__item">
+												Досвід работи від 1 року на позиції супервайзера, аудитора торгових точок, регіонального менеджера та ін. (ринок FMCG);
+											</li>
+											<li class="item-vacancy__item">
+												Володіння пакетом програм MS Office (Exсеl, PowerPoint), бажано — знання програми 1С;
+											</li>
+											<li class="item-vacancy__item">
+												Готовність до частих відряджень по Україні (від 15 днів на місяць)
+											</li>
+										</ul>
+									</div>
+									<div class="item-vacancy__block">
+										<p class="item-vacancy__title">Обов'язки:</p>
+										<ul class="item-vacancy__list">
+											<li class="item-vacancy__item">
+												Технічне та методичне керівництво підлеглими підрозділами
+											</li>
+											<li class="item-vacancy__item">
+												Технічне та методичне керівництво підлеглими підрозділами
+											</li>
+											<li class="item-vacancy__item">
+												Розробка заходів щодо економії ресурсів, модернізації, автоматизації технічних процесів та їх впровадження
+											</li>
+											<li class="item-vacancy__item">
+												Контроль за правильністю експлуатації обладнання технічних споруд та установок
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="item-vacancy__links">
+									<a href="#" class="item-vacancy__link btn btn--01">
+										<span>Детальніше</span>
+										<svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M1 1.5L8 8L1 14.5" stroke="#000" stroke-linecap="square"/>
+										</svg>
+									</a>
+									<a href="#"  data-popup="#popup-vacancy" class="item-vacancy__link btn btn--02">
+										<span>Відгукнутися</span>
+									</a>
+								</div>
+							</li>
+							<li data-iso-item data-filter="foodsales" class="vacancy__item item-vacancy">
+								<p class="item-vacancy__position">Програміст</p>
+								<div class="item-vacancy__place">
+									<p class="item-vacancy__company">
+										<img src="@img/icons/office.svg" width="35" height="35" alt="icon office">
+										<span>Foodsales</span>
+									</p>
+									<p class="item-vacancy__location">
+										<img src="@img/icons/location.svg" width="35" height="35" alt="icon location">
+										<span>Рівне</span>
+									</p>
+								</div>
+								<div class="item-vacancy__about">
+									<div class="item-vacancy__block">
+										<p class="item-vacancy__title">Вимоги:</p>
+										<ul class="item-vacancy__list">
+											<li class="item-vacancy__item">
+												Готовність до частих відряджень по Україні (від 15 днів на місяць)
+											</li>
+											<li class="item-vacancy__item">
+												Досвід работи від 1 року на позиції супервайзера, аудитора торгових точок, регіонального менеджера та ін. (ринок FMCG);
+											</li>
+											<li class="item-vacancy__item">
+												Володіння пакетом програм MS Office (Exсеl, PowerPoint), бажано — знання програми 1С;
+											</li>
+											<li class="item-vacancy__item">
+												Готовність до частих відряджень по Україні (від 15 днів на місяць)
+											</li>
+										</ul>
+									</div>
+									<div class="item-vacancy__block">
+										<p class="item-vacancy__title">Обов'язки:</p>
+										<ul class="item-vacancy__list">
+											<li class="item-vacancy__item">
+												Технічне та методичне керівництво підлеглими підрозділами
+											</li>
+											<li class="item-vacancy__item">
+												Технічне та методичне керівництво підлеглими підрозділами
+											</li>
+											<li class="item-vacancy__item">
+												Розробка заходів щодо економії ресурсів, модернізації, автоматизації технічних процесів та їх впровадження
+											</li>
+											<li class="item-vacancy__item">
+												Контроль за правильністю експлуатації обладнання технічних споруд та установок
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="item-vacancy__links">
+									<a href="#" class="item-vacancy__link btn btn--01">
+										<span>Детальніше</span>
+										<svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M1 1.5L8 8L1 14.5" stroke="#000" stroke-linecap="square"/>
+										</svg>
+									</a>
+									<a href="#"  data-popup="#popup-vacancy" class="item-vacancy__link btn btn--02">
+										<span>Відгукнутися</span>
+									</a>
+								</div>
+							</li>
+							<li data-iso-item data-filter="foodsales" class="vacancy__item item-vacancy">
+								<p class="item-vacancy__position">Програміст</p>
+								<div class="item-vacancy__place">
+									<p class="item-vacancy__company">
+										<img src="@img/icons/office.svg" width="35" height="35" alt="icon office">
+										<span>Foodsales</span>
+									</p>
+									<p class="item-vacancy__location">
+										<img src="@img/icons/location.svg" width="35" height="35" alt="icon location">
+										<span>Рівне</span>
+									</p>
+								</div>
+								<div class="item-vacancy__about">
+									<div class="item-vacancy__block">
+										<p class="item-vacancy__title">Вимоги:</p>
+										<ul class="item-vacancy__list">
+											<li class="item-vacancy__item">
+												Готовність до частих відряджень по Україні (від 15 днів на місяць)
+											</li>
+											<li class="item-vacancy__item">
+												Досвід работи від 1 року на позиції супервайзера, аудитора торгових точок, регіонального менеджера та ін. (ринок FMCG);
+											</li>
+											<li class="item-vacancy__item">
+												Володіння пакетом програм MS Office (Exсеl, PowerPoint), бажано — знання програми 1С;
+											</li>
+											<li class="item-vacancy__item">
+												Готовність до частих відряджень по Україні (від 15 днів на місяць)
+											</li>
+										</ul>
+									</div>
+									<div class="item-vacancy__block">
+										<p class="item-vacancy__title">Обов'язки:</p>
+										<ul class="item-vacancy__list">
+											<li class="item-vacancy__item">
+												Технічне та методичне керівництво підлеглими підрозділами
+											</li>
+											<li class="item-vacancy__item">
+												Технічне та методичне керівництво підлеглими підрозділами
+											</li>
+											<li class="item-vacancy__item">
+												Розробка заходів щодо економії ресурсів, модернізації, автоматизації технічних процесів та їх впровадження
+											</li>
+											<li class="item-vacancy__item">
+												Контроль за правильністю експлуатації обладнання технічних споруд та установок
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="item-vacancy__links">
+									<a href="#" class="item-vacancy__link btn btn--01">
+										<span>Детальніше</span>
+										<svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M1 1.5L8 8L1 14.5" stroke="#000" stroke-linecap="square"/>
+										</svg>
+									</a>
+									<a href="#"  data-popup="#popup-vacancy" class="item-vacancy__link btn btn--02">
+										<span>Відгукнутися</span>
+									</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
 			</main>
 			@@include('html/_footer.htm',{})
 		</div>
+		@@include('html/_popup-vacancy.htm',{})
 		@@include('html/_js.htm',{})
 	</body>
 </html>

@@ -529,3 +529,217 @@
 }
 
 
+
+
+
+
+
+// -------------- PAGE VACANCY ----------------------------------
+
+
+// NEWS-SLIDER SECTION ====================
+.vacancy {
+  @extend %pddTopHero;
+  // .vacancy__head
+  &__head {
+  }
+  // .vacancy__container
+  &__container {
+  }
+  // .vacancy__body
+  &__body {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: toRem(1024);
+    @include adaptiveValue("padding-top", 40, 20,0,1920,1366.98);
+    @include adaptiveValue("padding-bottom", 100, 70,0,1920,1366.98);
+  }
+  // .vacancy__item
+  &__item {
+  }
+}
+
+.head-vacancy {
+  position: relative;
+  overflow: hidden;
+  // .head-vacancy__bg
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  // .head-vacancy__container
+  &__container {
+    position: relative;
+    z-index: 2;
+  }
+  // .head-vacancy__title
+  &__title {
+  }
+  // .head-vacancy__filter
+  &__filter {
+  }
+}
+
+.filter {
+  @include adaptiveValue("padding-bottom", 40, 20,0,1920,1366.98);
+  // .filter__slider
+  &__slider {
+    overflow: visible !important;
+  }
+  // .filter__wrapper
+  &__wrapper {
+  }
+  // .filter__slide
+  &__slide {
+  }
+  // .filter__item
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include adaptiveValue("width", 328, 200,2,1920,1366.98);
+    @include adaptiveValue("width", 200, 160,3,1366.98,480.98);
+    @include adaptiveValue("height", 200, 120,2,1920,1366.98);
+    @include adaptiveValue("height", 120, 80,3,1366.98,480.98);
+    background-color: #fff;
+    @include adaptiveValue("margin-right", 20, 10,0,1920,1366.98);
+    @include adaptiveValue("padding", 20, 10,0,1920,1366.98);
+
+    position: relative;
+    &::before {
+      content: '';
+      position:absolute;
+      inset: 0;
+      transition: border-color .2s ease;
+      pointer-events: none;
+      @media (min-width:toEm(1440.98)){
+        border: toRem(10) solid transparent;
+      }
+      @media (max-width:toEm(1440.98)){
+        border: toRem(6) solid transparent;
+      }
+    }
+
+    &.active {
+      &::before {
+        border-color: $yellow;
+      }
+    }
+  }
+}
+
+.item-all {
+  gap: toRem(8);
+  // .item-all__burger
+  &__burger {
+    height: auto;
+    @include adaptiveValue("width", 34, 22,0,1920,1366.98);
+  }
+  // .item-all__txt
+  &__txt {
+    display: inline-block;
+    font-weight: 600;
+    color: $blueDark;
+    @include adaptiveValue("font-size", 30, 16,0,1920,1366.98);
+  }
+}
+
+
+.item-vacancy {
+  background-color: #fff;
+  border: toRem(1) solid $mainColor;
+  @include adaptiveValue("padding", 28, 16,0,1920,1366.98);
+  &:not(:last-child) {
+    margin-bottom: toRem(20);
+  }
+  // .item-vacancy__position
+  &__position {
+    font-weight: 700;
+    @include adaptiveValue("font-size", 40, 24,0,1920,1366.98);
+    @include adaptiveValue("margin-bottom", 20, 16,0,1920,1366.98);
+  }
+  // .item-vacancy__place
+  &__place {
+    display: flex;
+    flex-wrap: wrap;
+    @include adaptiveValue("gap", 30, 10,0,1920,1366.98);
+    margin-bottom: toRem(20);
+    @media (max-width:$mobileSmall){
+       flex-direction: column; 
+    }
+  }
+  // .item-vacancy__company
+  &__company,
+  &__location {
+    display: flex;
+    align-items: center;
+    gap: toRem(8);
+    font-weight: 700;
+    @include adaptiveValue("font-size", 22, 18,0,1920,1366.98);
+    img {
+      height: auto;
+      @include adaptiveValue("width", 35, 24,0,1920,1366.98);
+    }
+  }
+  // .item-vacancy__location
+  &__location {
+  }
+  // .item-vacancy__about
+  &__about {
+    display: grid;
+    @include adaptiveValue("gap", 96, 50,0,1920,1366.98);
+    @include adaptiveValue("margin-bottom", 20, 10,0,1366.98,480.98);
+    @media (min-width:toEm(650.98)){
+      grid-template-columns: auto auto;
+    }
+    @media (max-width: toEm(650.9)){
+        gap: toRem(20) !important;
+    }
+  }
+  // .item-vacancy__block
+  &__block {
+    font-size: toRem(16);
+  }
+  // .item-vacancy__title
+  &__title {
+    font-weight: 700;
+    margin-bottom: toRem(8);
+  }
+  // .item-vacancy__list
+  &__list {
+  }
+  // .item-vacancy__item
+  &__item {
+    padding-left: toRem(16);
+    &:not(:last-child) {
+      margin-bottom: toRem(8);
+    }
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      top: toRem(6);
+      left: 0;
+      width: toRem(6);
+      height: toRem(6);
+      border-radius: 50%;
+      background-color: $blueLight;
+    }
+  }
+  // .item-vacancy__links
+  &__links {
+    display: grid;
+    @include adaptiveValue("gap", 20, 10,0,1366.98,480.98);
+    @media (min-width:$mobileSmall){
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  // .item-vacancy__link
+  &__link {
+  }
+}
+
+
+
+

@@ -1,14 +1,14 @@
 // Підключення функціоналу "Чертоги Фрілансера"
-import { isMobile } from "./functions.js";
-// Підключення списку активних модулів
+import layoutMode from "isotope-layout/js/layout-mode.js";
+import { isMobile, FLS } from "./functions.js";
 import { flsModules } from "./modules.js";
+import Isotope from 'isotope-layout/js/isotope.js';
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
 
-
-
-
+    // ==   VIDEO YOUTUBE ON CLICK BUTTON ==================================================
     const videoYoutubeButtons = document.querySelectorAll('.video-youtube__button');
     videoYoutubeButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -33,8 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
             body.classList.add('video-added');
         });
     });
-    
+    // =====================================================================================
 
+
+     // ==   HERO VIDEO CHANGE ROTATION PC/MOB VIDEO ==================================================
     const video = document.querySelector('.hero__video');
     if (video) {
         // Переменная для хранения предыдущей ширины окна
@@ -59,7 +61,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         checkScreenWidth();
     }
+    // =====================================================================================
 
+
+
+     // ==  ANIMATION FINGER ON HERO SECTION ==================================================
     const finger = document.querySelector('.finger');
     if (finger) {
         // Добавляем класс 'visible' через 8 секунд
@@ -71,6 +77,38 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 12000);
         }, 7000);
     }
-    
+    // =====================================================================================
+
+    const items = document.querySelector('[data-iso-items]');
+    if (items) {
+    	const itemsGrid = new Isotope(items, {
+    		itemSelector: '[data-iso-item]',
+    		layoutMode: 'vertical',
+    		// masonry: {
+    		// 	fitWidth: true,
+    		// 	gutter: 20
+    		// }
+    	});
+        
+        document.addEventListener("click", documentActions);
+    	function documentActions(e) {
+    		const targetElement = e.target;
+    		if (targetElement.closest(".filter__item")) {
+    			const filterItem = targetElement.closest(".filter__item");
+    			const filterValue = filterItem.dataset.filter;
+    			const filterActiveItem = document.querySelector('.filter__item.active');
+
+    			filterValue === "*" ? itemsGrid.arrange({ filter: `` }) :
+    				itemsGrid.arrange({ filter: `[data-filter="${filterValue}"]` })
+
+    			filterActiveItem.classList.remove("active");
+    			filterItem.classList.add("active");
+
+    			e.preventDefault();
+    		}
+    	}
+    }
+
+
 });
 
