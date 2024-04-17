@@ -36,3 +36,27 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
 });
+
+// Получаем ссылку на видео и его контейнер
+const video = document.querySelector('.hero__video');
+if (video) {
+    // Обработчик изменения размера окна
+    window.addEventListener('resize', () => {
+      // При изменении размера окна пересчитываем видео
+      checkScreenSize();
+    });
+    
+    // Функция для проверки размера экрана и выбора соответствующего видео
+    function checkScreenSize() {
+      if (window.matchMedia('(min-width: 30.06125em)').matches) {
+        const pcSource = video.querySelector('.video-hero-pc').getAttribute('src');
+        video.src = pcSource;
+      } else {
+        const mobSource = video.querySelector('.video-hero-mob').getAttribute('src');
+        video.src = mobSource;
+      }
+    }
+    
+    // Вызываем функцию при загрузке страницы
+    checkScreenSize();
+}

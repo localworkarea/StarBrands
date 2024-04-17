@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240417133907">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240417153403">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,10 +71,23 @@
 			</button>
 		</header>
 		<main class="page">
-			<section class="hero">
+			<section class="hero video-container">
 				<video class="hero__video ibg ibg--contain" muted playsinline autoplay width="1920" height="850" poster="img/bg-hero.webp">
-					<source class="video-hero-pc" src="files/StarBrands_hor.mp4" type="video/mp4" />
+					<source class="video-hero-pc" media="(min-width: 30.06125em)" src="files/StarBrands_hor.mp4" type="video/mp4" />
+					<source class="video-hero-mob" src="files/StarBrands_vert.mp4" type="video/mp4" />
 				</video>
+				<a href="#" class="hero__link link-a" aria-label="посилання на Snak Production">
+					<img src="img/logos/LogoSnackProduction.webp" alt="Image">
+				</a>
+				<a href="#" class="hero__link link-b" aria-label="посилання на Star Brands Asia">
+					<img src="img/logos/logoStarBrandsAsia.webp" alt="Image">
+				</a>
+				<a href="#" class="hero__link link-c" aria-label="посилання на Eurogroup Trans">
+					<img src="img/logos/LogoEurogrouptrans.webp" alt="Image">
+				</a>
+				<a href="#" class="hero__link link-d" aria-label="посилання на Foodsales">
+					<img src="img/logos/logoFoodsales.webp" alt="Image">
+				</a>
 			</section>
 			<section class="companies">
 				<div class="companies__container">
@@ -829,7 +842,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20240417133907"></script>
+	<script src="js/app.min.js?_v=20240417153403"></script>
 </body>
 
 </html>

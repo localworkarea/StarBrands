@@ -1,11 +1,136 @@
 .hero {
+  position: relative;
   overflow: hidden;
   @include adaptiveValue("padding-top", 100, 60,0,1920,1366.98);
+  @media (max-width:$mobileSmall){
+     min-height: 100vh; 
+     min-height: 100svh; 
+  }
   // .hero__video
   &__video {
-    &.video-hero-pc {
+    @media (max-width:$mobileSmall) and (min-height: toEm(500)) {
+       min-height: 100vh;
+       object-fit: cover;
+       position: absolute;
+       top: 0;
+       left: 0;
     }
   }
+	// .hero__link
+	&__link {
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    transform: scale(0.7);
+    pointer-events: none;
+    transition: transform .85s ease, opacity .65s ease;
+    .loaded & {
+      pointer-events: all;
+      transform: scale(1);
+      opacity: 1;
+    }
+    @media (any-hover: hover){
+      &:hover{
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+    img {
+      height: auto;
+      transition: transform .3s ease;
+    }
+    &.link-a {
+      transition-delay: 6s;
+      @media (min-width:$tablet){
+        bottom: 15%;
+      }
+      @media (max-width:$tablet){
+        bottom: 12%        
+      }
+      @media (min-width:$mobile){
+        left: 10%;
+      }
+      @media (max-width:$mobile){
+        left: 0%;
+        bottom: 33%          
+      }
+      @media (max-width:$mobileSmall){
+         bottom: 65%; 
+         left: 1%;
+      }
+      img {
+        @include adaptiveValue("width", 280, 160,0,1920,1366.98);
+      }
+    }
+    &.link-b {
+      transition-delay: 4.0s;
+      @media (min-width:$tablet){
+        bottom: 5%;
+      }
+      @media (max-width:$tablet){
+        bottom: 3%;
+      }
+      @media (min-width:$mobile){
+        left: 29%;
+      }
+      @media (max-width:$mobile){
+        left: 20%;          
+      }
+      @media (max-width:$mobileSmall){
+         bottom: 20%;
+         left: 7%; 
+      }
+      img {
+        @include adaptiveValue("width", 139, 90,0,1920,1366.98);
+      }
+    }
+    &.link-c {
+      transition-delay: 4.6s;
+      @media (min-width:$tablet){
+        bottom: 5%;
+      }
+      @media (max-width:$tablet){
+        bottom: 3%;
+      }
+      @media (min-width:$mobile){
+        right: 30%;
+      }
+      @media (max-width:$mobile){
+         right: 23%; 
+      }
+      @media (max-width:$mobileSmall){
+        bottom: 20%;
+        right: 7%; 
+      }
+      img {
+        @include adaptiveValue("width", 223, 155,0,1920,1366.98);
+      }
+    }
+    &.link-d {
+      transition-delay: 6.15s;
+      @media (min-width:$tablet){
+        bottom: 20%;
+      }
+      @media (max-width:$tablet){
+        bottom: 17%;
+      }
+      @media (min-width:$mobile){
+        right: 10%;
+      }
+      @media (max-width:$mobile){
+         right: 2%;
+         bottom: 35%; 
+      }
+      @media (max-width:$mobileSmall){
+        bottom: 67%; 
+        right: 3%;
+      }
+      img {
+        @include adaptiveValue("width", 225, 155,0,1920,1366.98);
+      }
+    }
+	}
 }
 
 // COMPANIES SECTION ==============================================================

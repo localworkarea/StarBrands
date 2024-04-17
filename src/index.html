@@ -7,10 +7,23 @@
 		<div class="wrapper pg-home">
 			@@include('html/_header.htm',{})
 			<main class="page">
-				<section class="hero">
+				<section class="hero video-container">
 					<video class="hero__video ibg ibg--contain" muted playsinline autoplay width="1920" height="850" poster="@img/bg-hero.webp">
-						<source class="video-hero-pc" src="files/StarBrands_hor.mp4" type="video/mp4"/>
+						<source class="video-hero-pc" media="(min-width: 30.06125em)" src="files/StarBrands_hor.mp4" type="video/mp4"/>
+						<source class="video-hero-mob"  src="files/StarBrands_vert.mp4" type="video/mp4"/>
 					</video>
+					<a href="#" class="hero__link link-a" aria-label="посилання на Snak Production">
+						<img src="@img/logos/LogoSnackProduction.png" alt="Image">
+					</a>
+					<a href="#" class="hero__link link-b" aria-label="посилання на Star Brands Asia">
+						<img src="@img/logos/logoStarBrandsAsia.png" alt="Image">
+					</a>
+					<a href="#" class="hero__link link-c" aria-label="посилання на Eurogroup Trans">
+						<img src="@img/logos/LogoEurogrouptrans.png" alt="Image">
+					</a>
+					<a href="#" class="hero__link link-d" aria-label="посилання на Foodsales">
+						<img src="@img/logos/logoFoodsales.png" alt="Image">
+					</a>
 				</section>
 				<section class="companies">
 					<div class="companies__container">

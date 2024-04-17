@@ -13,6 +13,13 @@
             document.documentElement.classList.add(className);
         }));
     }
+    function addLoadedClass() {
+        if (!document.documentElement.classList.contains("loading")) window.addEventListener("load", (function() {
+            setTimeout((function() {
+                document.documentElement.classList.add("loaded");
+            }), 0);
+        }));
+    }
     let bodyLockStatus = true;
     let bodyLockToggle = (delay = 500) => {
         if (document.documentElement.classList.contains("lock")) bodyUnlock(delay); else bodyLock(delay);
@@ -3614,7 +3621,24 @@
             }));
         }));
     }));
+    const video = document.querySelector(".hero__video");
+    if (video) {
+        window.addEventListener("resize", (() => {
+            checkScreenSize();
+        }));
+        function checkScreenSize() {
+            if (window.matchMedia("(min-width: 30.06125em)").matches) {
+                const pcSource = video.querySelector(".video-hero-pc").getAttribute("src");
+                video.src = pcSource;
+            } else {
+                const mobSource = video.querySelector(".video-hero-mob").getAttribute("src");
+                video.src = mobSource;
+            }
+        }
+        checkScreenSize();
+    }
     window["FLS"] = false;
     isWebp();
+    addLoadedClass();
     menuInit();
 })();
