@@ -3620,23 +3620,35 @@
                 body.classList.add("video-added");
             }));
         }));
-    }));
-    const video = document.querySelector(".hero__video");
-    if (video) {
-        window.addEventListener("resize", (() => {
-            checkScreenSize();
-        }));
-        function checkScreenSize() {
-            if (window.matchMedia("(min-width: 30.06125em)").matches) {
-                const pcSource = video.querySelector(".video-hero-pc").getAttribute("src");
-                video.src = pcSource;
-            } else {
-                const mobSource = video.querySelector(".video-hero-mob").getAttribute("src");
-                video.src = mobSource;
+        const video = document.querySelector(".hero__video");
+        if (video) {
+            let prevWidth = window.innerWidth;
+            window.addEventListener("resize", (() => {
+                const newWidth = window.innerWidth;
+                if (newWidth !== prevWidth) {
+                    prevWidth = newWidth;
+                    checkScreenWidth();
+                }
+            }));
+            function checkScreenWidth() {
+                if (window.innerWidth > 30.061 * parseFloat(getComputedStyle(document.documentElement).fontSize)) {
+                    const pcSource = video.querySelector(".video-hero-pc").getAttribute("src");
+                    video.src = pcSource;
+                } else {
+                    const mobSource = video.querySelector(".video-hero-mob").getAttribute("src");
+                    video.src = mobSource;
+                }
             }
+            checkScreenWidth();
         }
-        checkScreenSize();
-    }
+        const finger = document.querySelector(".finger");
+        if (finger) setTimeout((() => {
+            finger.classList.add("visible");
+            setTimeout((() => {
+                finger.classList.remove("visible");
+            }), 12e3);
+        }), 7e3);
+    }));
     window["FLS"] = false;
     isWebp();
     addLoadedClass();

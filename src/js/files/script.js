@@ -35,28 +35,42 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
 
-});
-
-// Получаем ссылку на видео и его контейнер
-const video = document.querySelector('.hero__video');
-if (video) {
-    // Обработчик изменения размера окна
-    window.addEventListener('resize', () => {
-      // При изменении размера окна пересчитываем видео
-      checkScreenSize();
-    });
+    const video = document.querySelector('.hero__video');
+    if (video) {
+        // Переменная для хранения предыдущей ширины окна
+        let prevWidth = window.innerWidth;
     
-    // Функция для проверки размера экрана и выбора соответствующего видео
-    function checkScreenSize() {
-      if (window.matchMedia('(min-width: 30.06125em)').matches) {
-        const pcSource = video.querySelector('.video-hero-pc').getAttribute('src');
-        video.src = pcSource;
-      } else {
-        const mobSource = video.querySelector('.video-hero-mob').getAttribute('src');
-        video.src = mobSource;
-      }
+        window.addEventListener('resize', () => {
+            const newWidth = window.innerWidth;
+            if (newWidth !== prevWidth) {
+                prevWidth = newWidth;
+                checkScreenWidth();
+            }
+        });
+    
+        function checkScreenWidth() {
+            if (window.innerWidth > 30.061 * parseFloat(getComputedStyle(document.documentElement).fontSize)) {
+                const pcSource = video.querySelector('.video-hero-pc').getAttribute('src');
+                video.src = pcSource;
+            } else {
+                const mobSource = video.querySelector('.video-hero-mob').getAttribute('src');
+                video.src = mobSource;
+            }
+        }
+        checkScreenWidth();
+    }
+
+    const finger = document.querySelector('.finger');
+    if (finger) {
+        // Добавляем класс 'visible' через 8 секунд
+        setTimeout(() => {
+            finger.classList.add('visible');
+            // Убираем класс 'visible' еще через 8 секунд
+            setTimeout(() => {
+                finger.classList.remove('visible');
+            }, 12000);
+        }, 7000);
     }
     
-    // Вызываем функцию при загрузке страницы
-    checkScreenSize();
-}
+});
+
