@@ -517,7 +517,8 @@ h6 {
     cursor: pointer
   }
   .companies__slide.swiper-slide-active:hover .slide-companies__info {
-    opacity: 1
+    opacity: 1;
+    transition-delay: .2s
   }
 }
 @media (min-width:46.93625em) {
@@ -990,7 +991,8 @@ h6 {
     font-size: 3.75rem
   }
   .companies__slide.swiper-slide-active .slide-companies__info {
-    opacity: 1
+    opacity: 1;
+    transition-delay: .2s
   }
   .video-youtube__button::before {
     width: 3.75rem

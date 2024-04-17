@@ -74,12 +74,14 @@
           cursor: pointer;
           .slide-companies__info {
             opacity: 1;
+            transition-delay: .2s;
           }
         }
       }
       @media (max-width:$mobileSmall){
         .slide-companies__info {
           opacity: 1;
+          transition-delay: .2s;
         }
       }
     }

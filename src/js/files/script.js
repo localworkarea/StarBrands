@@ -5,27 +5,34 @@ import { flsModules } from "./modules.js";
 
 
 document.addEventListener('DOMContentLoaded', function() {
-  const videoButtons = document.querySelectorAll('.video-youtube__button');
 
-  videoButtons.forEach(button => {
-      button.addEventListener('click', function() {
-          const youTubeCode = this.getAttribute('data-youtube');
-          const urlVideo = `https://www.youtube.com/embed/${youTubeCode}?rel=0&showinfo=0&autoplay=1`;
 
-          const iframe = document.createElement('iframe');
-          iframe.setAttribute('src', urlVideo);
-          iframe.setAttribute('allowfullscreen', '');
 
-          const autoplay = true; // включаем автовоспроизведение
 
-          if (autoplay) {
-              iframe.setAttribute('allow', 'autoplay; encrypted-media');
-          }
+    const videoYoutubeButtons = document.querySelectorAll('.video-youtube__button');
+    videoYoutubeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const youTubeCode = this.getAttribute('data-youtube');
+            let autoplay = true; // Автоплей разрешено (true) или нет (false)
+    
+            let urlVideo = `https://www.youtube.com/embed/${youTubeCode}?rel=0&showinfo=0`;
+    
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('allowfullscreen', '');
+    
+            if (autoplay) {
+                urlVideo += '&autoplay=1';
+                iframe.setAttribute('allow', 'autoplay; encrypted-media');
+            }
+    
+            iframe.setAttribute('src', urlVideo);
+    
+            const body = this.closest('.video-youtube__body');
+            body.innerHTML = '';
+            body.appendChild(iframe);
+            body.classList.add('video-added');
+        });
+    });
+    
 
-          const body = this.closest('.video-youtube__body'); // получаем обертку видео
-          body.innerHTML = ''; // очищаем содержимое обертки
-          body.appendChild(iframe); // добавляем iframe в обертку
-          body.classList.add('video-added');
-      });
-  });
 });

@@ -3478,16 +3478,19 @@
         }
     }), 0);
     document.addEventListener("DOMContentLoaded", (function() {
-        const videoButtons = document.querySelectorAll(".video-youtube__button");
-        videoButtons.forEach((button => {
+        const videoYoutubeButtons = document.querySelectorAll(".video-youtube__button");
+        videoYoutubeButtons.forEach((button => {
             button.addEventListener("click", (function() {
                 const youTubeCode = this.getAttribute("data-youtube");
-                const urlVideo = `https://www.youtube.com/embed/${youTubeCode}?rel=0&showinfo=0&autoplay=1`;
+                let autoplay = true;
+                let urlVideo = `https://www.youtube.com/embed/${youTubeCode}?rel=0&showinfo=0`;
                 const iframe = document.createElement("iframe");
-                iframe.setAttribute("src", urlVideo);
                 iframe.setAttribute("allowfullscreen", "");
-                const autoplay = true;
-                if (autoplay) iframe.setAttribute("allow", "autoplay; encrypted-media");
+                if (autoplay) {
+                    urlVideo += "&autoplay=1";
+                    iframe.setAttribute("allow", "autoplay; encrypted-media");
+                }
+                iframe.setAttribute("src", urlVideo);
                 const body = this.closest(".video-youtube__body");
                 body.innerHTML = "";
                 body.appendChild(iframe);
