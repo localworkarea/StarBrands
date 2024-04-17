@@ -27,7 +27,7 @@ body {
 }
 body {
 	color: $mainColor;
-	line-height: 1;
+	line-height: 1.2;
 	font-family: $fontFamily;
 	font-size: $fontSize;
 	//text-rendering: optimizeLegibility;
@@ -85,7 +85,7 @@ h6 {
 
 ::-webkit-scrollbar-thumb {
   background-color: #001A6F;
-	border-radius: 5px;
+	border-radius: 3px;
 }
 
 ::-webkit-scrollbar-track {

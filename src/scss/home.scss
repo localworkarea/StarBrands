@@ -22,7 +22,6 @@
 	// .companies__title
 	&__title {
     font-weight: 800;
-    line-height: 1.23;
     @include adaptiveValue("font-size", 128, 70,2,1920,1366.98);
     @include adaptiveValue("font-size", 70, 60,3,1366.98,480.98);
     color: $blueDark;
@@ -38,7 +37,6 @@
     margin-right: auto;
     @include adaptiveValue("max-width", 1024, 716,0,1920,1366.98);
     font-weight: 400;
-    line-height: 1.15;
     @include adaptiveValue("font-size", 34, 20,0,1920,1366.98);
 	}
 	// .companies__body
@@ -277,56 +275,66 @@
 }
 
 
-.video-youtube {
-  // .video-youtube__body
+// NEWS-SLIDER SECTION ==============================================================
+.news-slider {
+  @extend %pddSection;
+  // .news-slider__container
+  &__container {
+  }
+  // .news-slider__title
+  &__title {
+    @include adaptiveValue("margin-bottom", 39, 20,0,1920,1366.98);
+  }
+  // .news-slider__body
   &__body {
     position: relative;
-    background-color: #000;
-    @media (min-width:$mobile){
-      aspect-ratio: 19/9;
+    &:not(:last-child) {
+      margin-bottom: toRem(30); 
     }
-    @media (max-width:$mobile){
-      aspect-ratio: 16/9; 
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      @media (min-width:$mobile){
-        aspect-ratio: 19/9;
+    .swiper-button {
+      top: 50%;
+      @media (min-width:$mobileSmall){
+        transform: translate(0, -50%);
       }
-      @media (max-width:$mobile){
-        aspect-ratio: 16/9; 
+      @media (max-width:$mobileSmall){
+        transform: translate(0, -100%);
+      }
+    }
+    .swiper-button-prev {
+      @include adaptiveValue("left", -60, -50,2,1920,1300.98);
+      @media (max-width: toEm(1300.98)){
+        left: toRem(-15);
+      }
+    }
+    .swiper-button-next {
+      @include adaptiveValue("right", -60, -50,2,1920,1300.98);
+      @media (max-width: toEm(1300.98)){
+        right: toRem(-15);
       }
     }
   }
-  // .video-youtube__button
-  &__button {
-    overflow: hidden;
+  // .news-slider__slider
+  &__slider {
     position: relative;
-    z-index: 0;
-    &::before {
-      content: '';
-      position: absolute;
-      pointer-events: none;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-image:url('../img/icons/youtube-color.svg');
-      background-repeat: no-repeat;
-      background-size: contain;
-      @include adaptiveValue("width", 226, 150,2,1920,1366.98);
-      @include adaptiveValue("width", 150, 60,3,1366.98,480.98);
-      @include adaptiveValue("height", 155, 111,2,1920,1366.98);
-      @include adaptiveValue("height", 111, 49,3,1366.98,480.98);
+    .swiper-scrollbar {
+      @include adaptiveValue("margin-top", 40, 20,0,1920,1366.98);
+      margin-left: auto;
+      margin-right: auto;
+      width: toRem(290);
     }
-    img {
-      @media (min-width:$mobile){
-        aspect-ratio: 19/9;
-      }
-      @media (max-width:$mobile){
-        aspect-ratio: 16/9; 
-      }
+  }
+  // .news-slider__wrapper
+  &__wrapper {
+  }
+  // .news-slider__slide
+  &__slide {
+  }
+  // .news-slider__more
+  &__more {
+    @media (min-width:$mobileSmall){
+       display: none; 
     }
   }
 }
+
+

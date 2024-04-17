@@ -165,32 +165,10 @@
     @include adaptiveValue("font-size", 18, 16,0,1920,1366.98);
     text-wrap: nowrap;
     position: relative;
+    @extend %hoverLinkLine;
 
-    @media (any-hover: hover){
-      &:hover{
-        &::after {
-          transform: scaleX(1);
-          transform-origin: bottom left;
-        }
-      }
-    }
-
-    &::after {
-      @media (min-width:$mobileSmall){
-        content:'';
-        position: absolute;
-        bottom: toRem(-3);
-        left: 0;
-        width: 100%;
-        transform: scaleX(0);
-        height: toRem(1);
-        background-color: $mainColor;
-        transform-origin: bottom right;
-        transition: transform .3s ease-out;
-      }
-    }
     @media (max-width: toEm(900.98)){
-        font-size: toRem(18) !important;
+        font-size: toRem(24) !important;
         text-align: center;
         width: 100%;
     }

@@ -45,7 +45,7 @@ function initSliders() {
 			//preloadImages: false,
 			//lazy: true,
 			scrollbar: {
-				el: '.swiper-scrollbar',
+				el: '.companies__slider .swiper-scrollbar',
 				draggable: true,
 			},
 
@@ -76,6 +76,53 @@ function initSliders() {
 			},
 			*/
 			// Події
+			on: {
+
+			}
+		});
+	}
+	if (document.querySelector('.news-slider__slider')) {
+		new Swiper('.news-slider__slider', { 
+			modules: [Navigation, Scrollbar],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 3,
+			// centeredSlides: true,
+			spaceBetween: 18,
+			grabCursor: true,
+			//autoHeight: true,
+			speed: 500,
+
+			//touchRatio: 0,
+			//simulateTouch: false,
+			// loop: true,
+			// loopAddBlankSlides: true,
+			// loopAdditionalSlides: 5,
+			//preloadImages: false,
+			//lazy: true,
+			scrollbar: {
+				el: '.news-slider__slider .swiper-scrollbar',
+				draggable: true,
+			},
+
+			navigation: {
+				prevEl: '.news-slider__body .swiper-button-prev',
+				nextEl: '.news-slider__body .swiper-button-next',
+			},
+			breakpoints: {
+				300: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 18,
+				},
+				993: {
+					slidesPerView: 3,
+					spaceBetween: 18,
+				},
+			},
 			on: {
 
 			}

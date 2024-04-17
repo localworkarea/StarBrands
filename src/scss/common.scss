@@ -32,24 +32,97 @@
    }
 }
 
+%hoverLinkLine {
+  @media (any-hover: hover){
+    &:hover{
+      &::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    }
+  }
+  
+  &::after {
+    @media (min-width:$mobileSmall){
+      content:'';
+      position: absolute;
+      bottom: toRem(-3);
+      left: 0;
+      width: 100%;
+      transform: scaleX(0);
+      height: toRem(1);
+      background-color: $mainColor;
+      transform-origin: bottom right;
+      transition: transform .3s ease-out;
+    }
+  }
+}
+
 %pddSection {
   @include adaptiveValue("padding-top", 100, 70,0,1920,1366.98);
   @include adaptiveValue("padding-bottom", 100, 70,0,1920,1366.98);
 }
 
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: toRem(15);
+
+  @include adaptiveValue("min-height", 80, 60,0,1920,1366.98);
+  width: 100%;
+  border: toRem(1) solid $mainColor;
+  font-size: toRem(18);
+  font-weight: 400;
+
+  @extend %hoverBlackWhite;
+  @media (any-hover: hover){
+    &:hover{
+      svg {
+        transform: translateX(15px);
+        path {
+          stroke: #fff;
+        }
+      }
+    }
+  }
+
+  span {
+    display: inline-block;
+  }
+  svg {
+    transition: transform .55s ease 0.1s;
+    path {
+      
+      transition: stroke .3s ease;
+    }
+  }
+  &.btn--01 {
+  background-color: #fff;
+  }
+  &.btn--02 {
+  background-color: $yellow;
+  }
+}
+
+
 .title-hero {
   font-weight: 700;
-  line-height: 1.2;
   @include adaptiveValue("font-size", 48, 36,0,1920,1366.98);
   color: $blueDark;
+}
+
+.bg-blue-light {
+  background-color: $blueBGLight;
 }
 
 
 .swiper-button {
   position: absolute;
   z-index: 10;
-  @include adaptiveValue("width", 40, 30,0,1920,136.98);
-  @include adaptiveValue("height", 40, 30,0,1920,136.98);
+  @include adaptiveValue("width", 40, 30,0,1920,1366.98);
+  @include adaptiveValue("height", 40, 30,0,1920,1366.98);
   border: toRem(1) solid $mainColor;
   display: flex;
   align-items: center;
@@ -70,6 +143,10 @@
     path {
       transition: stroke .3s ease;
     }
+  }
+  &.swiper-button-disabled {
+    opacity: .3;
+    pointer-events: none;
   }
   &.swiper-button-prev {
     @media (min-width:toEm(1300.98)){
@@ -98,3 +175,116 @@
   }
 }
 
+.video-youtube {
+  // .video-youtube__body
+  &__body {
+    position: relative;
+    background-color: #000;
+    @media (min-width:$mobile){
+      aspect-ratio: 19/9;
+    }
+    @media (max-width:$mobile){
+      aspect-ratio: 16/9; 
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @media (min-width:$mobile){
+        aspect-ratio: 19/9;
+      }
+      @media (max-width:$mobile){
+        aspect-ratio: 16/9; 
+      }
+    }
+  }
+  // .video-youtube__button
+  &__button {
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    &::before {
+      content: '';
+      position: absolute;
+      pointer-events: none;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-image:url('../img/icons/youtube-color.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      @include adaptiveValue("width", 226, 150,2,1920,1366.98);
+      @include adaptiveValue("width", 150, 60,3,1366.98,480.98);
+      @include adaptiveValue("height", 155, 111,2,1920,1366.98);
+      @include adaptiveValue("height", 111, 49,3,1366.98,480.98);
+    }
+    img {
+      @media (min-width:$mobile){
+        aspect-ratio: 19/9;
+      }
+      @media (max-width:$mobile){
+        aspect-ratio: 16/9; 
+      }
+    }
+  }
+}
+
+
+.news-card {
+  position: relative;
+  overflow: hidden;
+  border: toRem(1) solid $mainColor;
+  height: 100%;
+  @include adaptiveValue("padding", 38, 18,0,1920,1366.98);
+  min-height: toRem(360);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  // .news-card__img
+  &__img {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    object-position: top;
+    @media (min-width:$mobileSmall){
+       aspect-ratio: 560/360; 
+    }
+    @media (max-width:$mobileSmall){
+      aspect-ratio: 350/370; 
+    }
+  }
+  // .news-card__box
+  &__box {
+    margin-top: toRem(220);
+    flex: 1;
+    position: relative;
+    z-index: 2;
+    background-color: $blueDark;
+    color: #fff;
+    @include adaptiveValue("padding", 18, 12,0,1920,1366.98);
+    border: toRem(1) solid $blueLight;
+    @media (min-width:toEm(1100.98)){
+      &::before {
+        content: '';
+        position: absolute;
+        top: toRem(-10);
+        left: toRem(-10);
+        width: toRem(20);
+        height: toRem(20);
+        background-color: $yellow;
+      }
+    }
+  }
+  // .news-card__title
+  &__title {
+    font-weight: 700;
+    @include adaptiveValue("font-size", 20, 18,0,1920,1366.98);
+    margin-bottom: toRem(10);
+  }
+  // .news-card__txt
+  &__txt {
+    font-size: toRem(16);
+    font-weight: 400;
+  }
+}
