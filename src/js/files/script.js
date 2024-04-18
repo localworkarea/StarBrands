@@ -75,20 +75,18 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 finger.classList.remove('visible');
             }, 12000);
-        }, 7000);
+        }, 6000);
     }
     // =====================================================================================
 
+    /*
     const items = document.querySelector('[data-iso-items]');
     if (items) {
     	const itemsGrid = new Isotope(items, {
     		itemSelector: '[data-iso-item]',
     		layoutMode: 'vertical',
-    		// masonry: {
-    		// 	fitWidth: true,
-    		// 	gutter: 20
-    		// }
     	});
+
         
         document.addEventListener("click", documentActions);
     	function documentActions(e) {
@@ -98,8 +96,16 @@ document.addEventListener('DOMContentLoaded', function() {
     			const filterValue = filterItem.dataset.filter;
     			const filterActiveItem = document.querySelector('.filter__item.active');
 
-    			filterValue === "*" ? itemsGrid.arrange({ filter: `` }) :
-    				itemsGrid.arrange({ filter: `[data-filter="${filterValue}"]` })
+    			// filterValue === "*" ? itemsGrid.arrange({ filter: `` }) :
+    			// 	itemsGrid.arrange({ filter: `[data-filter="${filterValue}"]` })
+
+                if (filterValue === "*") {
+                    // Если значение фильтра равно "*", то отображаем все элементы
+                    itemsGrid.arrange({ filter: `` }); // Пустая строка означает, что отображаются все элементы
+                } else {
+                    // Иначе применяем фильтрацию по указанному значению
+                    itemsGrid.arrange({ filter: `[data-filter="${filterValue}"]` });
+                }
 
     			filterActiveItem.classList.remove("active");
     			filterItem.classList.add("active");
@@ -109,6 +115,124 @@ document.addEventListener('DOMContentLoaded', function() {
     	}
     }
 
+    */
+
+    // РАБОТА С ФИЛЬТРМИ СТРАНИЦА VACANCY ====================================================
+    const itemsContainer = document.querySelector('[data-iso-items]');
+    if (itemsContainer) {
+        const itemsGrid = new Isotope(itemsContainer, {
+            itemSelector: '[data-iso-item]',
+            layoutMode: 'vertical',
+        });
+
+        // Получаем высоту padding верха и низа элемента itemsContainer
+        const containerPaddingTop = parseFloat(window.getComputedStyle(itemsContainer).paddingTop);
+        const containerPaddingBottom = parseFloat(window.getComputedStyle(itemsContainer).paddingBottom);
+
+        const filterButtons = document.querySelectorAll('.filter__item');
+
+        filterButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                filterButtons.forEach(function (btn) {
+                    btn.classList.remove('active');
+                });
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+                if (filterValue === "*") {
+                    itemsGrid.arrange({ filter: '[data-iso-item]:not([data-filter="empty"])' });
+                } else {
+                    itemsGrid.arrange({ filter: `[data-filter="${filterValue}"]` });
+                }
+
+                const filteredItems = itemsGrid.filteredItems;
+                if (filteredItems.length === 0) {
+                    const emptyItem = document.querySelector('[data-iso-item][data-filter="empty"]');
+                    itemsGrid.revealItemElements(emptyItem);
+
+                    const emptyItemHeight = emptyItem.offsetHeight;
+                    itemsContainer.style.height = (emptyItemHeight + containerPaddingTop + containerPaddingBottom) + 'px';
+                }
+            });
+        });
+
+        // Изначально скрываем элементы с data-filter="empty"
+        itemsGrid.hideItemElements(document.querySelectorAll('[data-iso-item][data-filter="empty"]'));
+    }
+    // =========================================================================
+  
+
+   
+    const fileInputBodies = document.querySelectorAll('.file-upload');
+    if (fileInputBodies.length > 0) {
+        fileInputBodies.forEach(fileInputBody => {
+            const fileInput = fileInputBody.querySelector('.file-upload__input');
+            let fileErrorSpan = null;
+            let previousFile = null; 
+    
+            if (fileInput) {
+                fileInput.addEventListener('change', function(event) {
+                    if (this.files && this.files.length > 0) {
+                        const fileSizeInMB = this.files[0].size / (1024 * 1024);
+                        if (fileSizeInMB > 10) {
+                            const errorMessage = this.getAttribute('data-fe');
+                            fileInput.classList.add('error');
+    
+                            if (!fileErrorSpan) {
+                                fileErrorSpan = document.createElement('span');
+                                fileErrorSpan.classList.add('file-error');
+                                fileInputBody.appendChild(fileErrorSpan);
+                            }
+    
+                            fileErrorSpan.textContent = errorMessage;
+                            fileErrorSpan.style.display = 'block'; 
+                            event.preventDefault();
+                        } else {
+                            fileInput.classList.remove('error');
+                            if (fileErrorSpan) {
+                                fileInputBody.removeChild(fileErrorSpan);
+                                fileErrorSpan = null;
+                            }
+                            if (!fileInputBody.classList.contains('_upload')) {
+                                fileInputBody.classList.add('_upload');
+                            }
+                            // Сохраняем предыдущий файл, чтобы позже проверить, нужно ли его удалить
+                            previousFile = this.files[0];
+                        }
+                    } else {
+                        fileInput.classList.remove('error');
+                        if (fileErrorSpan) {
+                            fileInputBody.removeChild(fileErrorSpan);
+                            fileErrorSpan = null;
+                        }
+                        fileInputBody.classList.remove('_upload');
+                    }
+                });
+            }
+        });
+    }
+
 
 });
 
+
+
+const popupButtons = document.querySelectorAll('[data-popup="#popup-vacancy"]');
+if (popupButtons.length > 0) {
+    popupButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const vacancyItem = button.closest('.vacancy__item');
+        const position = vacancyItem.querySelector('.item-vacancy__position').textContent;
+        const company = vacancyItem.querySelector('.item-vacancy__company span').textContent;
+        const location = vacancyItem.querySelector('.item-vacancy__location span').textContent;
+    
+        const popupPosition = document.querySelector('.popup-vacancy__item .item-vacancy__position');
+        const popupCompany = document.querySelector('.popup-vacancy__item .item-vacancy__company span');
+        const popupLocation = document.querySelector('.popup-vacancy__item .item-vacancy__location span');
+    
+        popupPosition.textContent = position;
+        popupCompany.textContent = company;
+        popupLocation.textContent = location;
+      });
+    });
+}

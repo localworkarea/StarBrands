@@ -67,6 +67,39 @@
 					</div>
 					<div class="vacancy__container">
 						<ul data-iso-items class="vacancy__body">
+							<li data-iso-item data-filter="empty"  class="vacancy__item item-vacancy" style="position: absolute; left: 0px; top: 40px; display: none;">
+								<p class="item-vacancy__position">На даний момент в цій компанії немає доступних вакансій</p>
+								<p class="item-vacancy__txt">
+									Проте ми завжди раді співпраці зі професіоналами, тому Ви можете надіслати своє резюме заповнивши форму нижче. Можливо саме Ви та людина, яку ми давно шукаємо!
+								</p>
+								<form class="item-vacancy__form form-vacancy" data-dev data-popup-message="#popup-message" action="#" method="POST">
+									<div class="form-vacancy__items">
+										<div class="form-vacancy__item">
+											<input class="input" type="text" name="name" placeholder="Ім'я" data-error="Обов'язкове поле"  data-required>
+										</div>
+										<div class="form-vacancy__item">
+											<input class="input" type="text" name="surname" placeholder="Прізвище" data-error="Обов'язкове поле"  data-required>
+										</div>
+										<div class="form-vacancy__item">
+											<input class="input" type="tel" name="tel" placeholder="+38 (0__) ___-__-__" data-error="Обов'язкове поле"  data-required>
+										</div>
+										<div class="form-vacancy__item file-upload">
+											<input class="file-upload__input input" id="file-upload-input" type="file" name="file-upload" data-fe="Файл має бути не більше ніж 10Мб! Виберіть інший" accept=".jpg, .png, .pdf, .doc, .docx">
+											<label for="file-upload-input" class="file-upload__label">
+												<span class="file-upload__add">
+													<img src="@img/icons/att.svg" width="28" height="28" alt="Image">
+													Додати резюме</span>
+												<span class="file-upload__added">Резюме додане 
+													<img src="@img/icons/check.svg" width="25" height="21" alt="Image">
+												</span>
+											</label>
+										</div>
+									</div>
+									<button type="submit" class="form-vacancy__submit btn btn--02">
+										<span>Надіслати</span>
+									</button>
+								</form>
+							</li>
 							<li data-iso-item data-filter="snack" class="vacancy__item item-vacancy">
 								<p class="item-vacancy__position">Головний інженер</p>
 								<div class="item-vacancy__place">
@@ -434,6 +467,7 @@
 			@@include('html/_footer.htm',{})
 		</div>
 		@@include('html/_popup-vacancy.htm',{})
+		@@include('html/_popup-msg.htm',{})
 		@@include('html/_js.htm',{})
 	</body>
 </html>

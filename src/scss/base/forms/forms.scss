@@ -1,20 +1,42 @@
-//<FORM>
-// Сніппет (HTML):
-.form {
-	&__row {
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.input {
+	border-radius: 0 !important;
+	width: 100%;
+	display: block;
+	padding: 0px toRem(20);
+	// border: 1px solid #eee;
+	caret-color: inherit;
+	@include adaptiveValue("min-height", 80, 60,0,1920,1366.98);
+	outline: none;
+	text-align: center;
+	@include adaptiveValue("font-size", 18, 16,0,1920,1366.98);
+	&._form-focus {
 	}
-	&__column {
-	}
-	&__line {
-	}
-	&__input {
-	}
-	&__button {
-	}
-	&__error {
+	&._form-error {
 	}
 }
-//</FORM>
+.input[placeholder]:not([data-placeholder-nohiden]) {
+	&::placeholder {
+		transition: opacity 0.3s;
+		color: #000;
+	}
+	&:focus::placeholder {
+		opacity: 0;
+	}
+}
+
+textarea.input {
+	resize: none;
+	padding: 0px 0px;
+}
+
 
 // <BUTTONS>
 // Сніппет (HTML): btn

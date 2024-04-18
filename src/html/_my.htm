@@ -1,0 +1,69 @@
+<button data-filter="*" class="filter__item item-all active" type="button" aria-label="кнопка фільтрів"></button>
+<button data-filter="snack" class="filter__item" type="button" aria-label="кнопка фільтрів"></button>
+<button data-filter="eurogroup" class="filter__item" type="button" aria-label="кнопка фільтрів"></button>
+<button data-filter="starbrands" class="filter__item" type="button" aria-label="кнопка фільтрів"></button>
+<button data-filter="foodsales" class="filter__item" type="button" aria-label="кнопка фільтрів"></button>
+<button data-filter="crispytation" class="filter__item" type="button" aria-label="кнопка фільтрів"></button>
+
+
+<ul data-iso-items class="vacancy__body">
+  <li data-iso-item data-filter="empty" class="vacancy__item item-vacancy"></li>
+  <li data-iso-item data-filter="snack" class="vacancy__item item-vacancy"></li>
+  <li data-iso-item data-filter="eurogroup" class="vacancy__item item-vacancy"></li>
+  <li data-iso-item data-filter="starbrands" class="vacancy__item item-vacancy"></li>
+  <li data-iso-item data-filter="foodsales" class="vacancy__item item-vacancy"></li>
+  <li data-iso-item data-filter="foodsales" class="vacancy__item item-vacancy"></li>
+</ul>
+
+<li class="vacancy__item item-vacancy">
+  <p class="item-vacancy__position">Головний інженер</p>
+  <div class="item-vacancy__place">
+    <p class="item-vacancy__company">
+      <img src="@img/icons/office.svg" width="35" height="35" alt="icon office">
+      <span>Snack Production</span>
+    </p>
+    <p class="item-vacancy__location">
+      <img src="@img/icons/location.svg" width="35" height="35" alt="icon location">
+      <span>Івано-Франківськ</span>
+    </p>
+  </div>
+    <a href="#"  data-popup="#popup-vacancy" class="item-vacancy__link btn btn--02">
+      <span>Відгукнутися</span>
+    </a>
+</li>
+<li class="vacancy__item item-vacancy">
+  <p class="item-vacancy__position">Головний інженер</p>
+  <div class="item-vacancy__place">
+    <p class="item-vacancy__company">
+      <img src="@img/icons/office.svg" width="35" height="35" alt="icon office">
+      <span>Snack Production</span>
+    </p>
+    <p class="item-vacancy__location">
+      <img src="@img/icons/location.svg" width="35" height="35" alt="icon location">
+      <span>Івано-Франківськ</span>
+    </p>
+  </div>
+    <a href="#"  data-popup="#popup-vacancy" class="item-vacancy__link btn btn--02">
+      <span>Відгукнутися</span>
+    </a>
+</li>
+
+<div id="popup-vacancy" aria-hidden="true" class="popup popup-vacancy">
+	<div class="popup__wrapper">
+		<div class="popup__content popup-vacancy__content">
+			<div class="item-vacancy popup-vacancy__item">
+					<p class="item-vacancy__position">Позиція</p>
+					<div class="item-vacancy__place">
+						<p class="item-vacancy__company">
+							<img src="@img/icons/office.svg" width="35" height="35" alt="icon office">
+							<span>Компанія</span>
+						</p>
+						<p class="item-vacancy__location">
+							<img src="@img/icons/location.svg" width="35" height="35" alt="icon location">
+							<span>Місто</span>
+						</p>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,4 +1,7 @@
 .footer {
+  background-color: #fff;
+  position: relative;
+  z-index: 5;
   // .footer__top
   &__top {
     @extend %pddSection;
