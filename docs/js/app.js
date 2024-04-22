@@ -6031,20 +6031,29 @@
                     }
                 }));
             }));
-        }));
-        const popupButtons = document.querySelectorAll('[data-popup="#popup-vacancy"]');
-        if (popupButtons.length > 0) popupButtons.forEach((button => {
-            button.addEventListener("click", (() => {
-                const vacancyItem = button.closest(".vacancy__item");
-                const position = vacancyItem.querySelector(".item-vacancy__position").textContent;
-                const company = vacancyItem.querySelector(".item-vacancy__company span").textContent;
-                const location = vacancyItem.querySelector(".item-vacancy__location span").textContent;
-                const popupPosition = document.querySelector(".popup-vacancy__item .item-vacancy__position");
-                const popupCompany = document.querySelector(".popup-vacancy__item .item-vacancy__company span");
-                const popupLocation = document.querySelector(".popup-vacancy__item .item-vacancy__location span");
-                popupPosition.textContent = position;
-                popupCompany.textContent = company;
-                popupLocation.textContent = location;
+            const popupButtons = document.querySelectorAll('[data-popup="#popup-vacancy"]');
+            if (popupButtons.length > 0) popupButtons.forEach((button => {
+                button.addEventListener("click", (() => {
+                    const vacancyItem = button.closest(".vacancy__item");
+                    const position = vacancyItem.querySelector(".item-vacancy__position").textContent;
+                    const company = vacancyItem.querySelector(".item-vacancy__company span").textContent;
+                    const location = vacancyItem.querySelector(".item-vacancy__location span").textContent;
+                    const popupPosition = document.querySelector(".popup-vacancy__item .item-vacancy__position");
+                    const popupCompany = document.querySelector(".popup-vacancy__item .item-vacancy__company span");
+                    const popupLocation = document.querySelector(".popup-vacancy__item .item-vacancy__location span");
+                    popupPosition.textContent = position;
+                    popupCompany.textContent = company;
+                    popupLocation.textContent = location;
+                }));
+            }));
+            const popupButtonsNews = document.querySelectorAll('[data-popup="#popup-news"]');
+            const popupContent = document.querySelector(".popup-news__body");
+            if (popupButtonsNews.length > 0) popupButtonsNews.forEach((button => {
+                button.addEventListener("click", (() => {
+                    const newsBlock = button.querySelector(".news-card__block");
+                    const newsBlockContent = newsBlock.innerHTML;
+                    popupContent.innerHTML = newsBlockContent;
+                }));
             }));
         }));
         window["FLS"] = false;

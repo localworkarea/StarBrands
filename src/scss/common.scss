@@ -128,7 +128,9 @@
 .bg-blue-light {
   background-color: $blueBGLight;
 }
-
+.color-acc {
+  color: $blueAcc;
+}
 
 .swiper-button {
   position: absolute;
@@ -248,17 +250,23 @@
   border: toRem(1) solid $mainColor;
   height: 100%;
   @include adaptiveValue("padding", 38, 18,0,1920,1366.98);
-  min-height: toRem(360);
+  // min-height: toRem(360);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  transition: box-shadow .3s ease;
+  @media (any-hover: hover){
+    &:hover{
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    }
+  }
   // .news-card__img
   &__img {
     position: absolute;
     z-index: 0;
     top: 0;
     left: 0;
-    object-position: top;
+    // object-position: top;
     @media (min-width:$mobileSmall){
        aspect-ratio: 560/360; 
     }
@@ -299,11 +307,40 @@
     font-size: toRem(16);
     font-weight: 400;
   }
+
+
+	// .news-card__block
+	&__block {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    bottom: 0;
+    left: 0
+	}
 }
 
-// хлебные крошки =========================
-.head-pg {
-  // .head-pg__list
+
+// === ОБЩИЙ БЛОК HEAD =======================
+.head-block {
+  @extend %pddTopHero;
+  position: relative;
+  overflow: hidden;
+  @include adaptiveValue("padding-bottom", 40, 20,0,1920,1366.98);
+  // .head-block__bg
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  // .head-block__container
+  &__container {
+    position: relative;
+    z-index: 2;
+  }
+
+
+  // хлебные крошки =========================
+  // .head-block__list
   &__list {
     padding-top: toRem(20);
     display: flex;
@@ -311,7 +348,7 @@
     flex-wrap: wrap;
     margin-bottom: toRem(20);
   }
-  // .head-pg__item
+  // .head-block__item
   &__item {
     list-style: none;
     color: rgba(255, 255, 255, 0.5);
@@ -331,6 +368,142 @@
       &::after {
         content: '/';
         margin-left: toRem(2);
+      }
+    }
+  }
+  // .head-block__main-block
+  &__main-block {
+  }
+}
+
+.main-block {
+  display: grid;
+  background-color: #fff;
+  @media (min-width:$mobile){
+    grid-template-columns: repeat(2,1fr);
+  }
+  // .main-block__img
+  &__img {
+    overflow: hidden;
+    img {
+      @media (min-width:$mobile){
+         aspect-ratio: 860/600; 
+      }
+      @media (max-width:$mobile){
+        aspect-ratio: 350/192; 
+      }
+    }
+  }
+  // .main-block__info
+  &__info {
+    @include adaptiveValue("padding", 100, 50,2,1920,1366.98);
+    @include adaptiveValue("padding", 50, 18,3,1366.98,480.98);
+    @media (min-width:$mobile){
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  // .main-block__title
+  &__title {
+    font-weight: 700;
+    color: $blueAcc;
+    @include adaptiveValue("font-size", 38, 24,2,1920,1366.98);
+    @include adaptiveValue("font-size", 24, 18,3,1366.98,480.98);
+    @include adaptiveValue("margin-bottom", 20, 18,0,1920,1366.98);
+  }
+  // .main-block__txt
+  &__txt {
+    @include adaptiveValue("font-size", 24, 16,0,1920,480.98);
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 20, 10,0,1920,480.98);
+    }
+  }
+}
+
+// == общие блоки картинка - текст ===================
+.info {
+  // .info__block
+  &__block {
+    display: grid;
+    &.block-left {
+      .info__img {
+        @media (min-width:$mobile){
+          order: 2;
+        }
+      }
+      .info__body {
+        @media (min-width:$mobile){
+          order: 1;
+        }
+      }
+    }
+    &:not(:last-child) {
+      margin-bottom: toRem(40);
+    }
+    @media (min-width:$mobile){
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+    }
+  }
+  // .info__img
+  &__img {
+    overflow: hidden;
+    border: toRem(1) solid $mainColor;
+    img {
+      @media (max-width:$mobileSmall){
+         aspect-ratio: 350/210;
+      }
+    }
+  }
+  // .info__body
+  &__body {
+    @include adaptiveValue("padding-top", 40, 20,0,1920,1366.98);
+    @include adaptiveValue("padding-bottom", 40, 20,0,1920,1366.98);
+    @include adaptiveValue("padding-left", 60, 20,2,1920,768.98);
+    @include adaptiveValue("padding-right", 60, 20,2,1920,768.98);
+    h2,h3,h4,h5,h6 {
+      font-weight: 700;
+    }
+    h2,h3 {
+      @include adaptiveValue("font-size", 38, 24,0,1920,1366.98);
+    }
+    h4 {
+      @include adaptiveValue("font-size", 36, 22,0,1920,1366.98);
+    }
+    h5 {
+      @include adaptiveValue("font-size", 34, 20,0,1920,1366.98);
+    }
+    h6 {
+      @include adaptiveValue("font-size", 32, 18,0,1920,1366.98);
+    }
+    p,li {
+      @include adaptiveValue("font-size", 20, 18,0,1920,1366.98);
+    }
+    h2,h3,h4,h5,h6, p, ul {
+      &:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 20, 10,0,1920,1366.98);
+      }
+    }
+    a {
+      max-width: toRem(472);
+      @include adaptiveValue("margin-top", 32, 20,0,1920,1366.98);
+    }
+    ul li {
+      padding-left: toRem(20);
+      position: relative;
+      &:not(:last-child) {
+        margin-bottom: toRem(5);
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        top: 6px;
+        left: 0;
+        width: toRem(8);
+        height: toRem(8);
+        border-radius: 50%;
+        background-color: $blueLight;
       }
     }
   }
