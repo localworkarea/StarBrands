@@ -993,6 +993,7 @@
   }
   // .about-brands__title
   &__title {
+    text-align: center;
     &:not(:last-child) {
       @include adaptiveValue("margin-bottom", 40, 20,0,1920,1366.98);
     }
@@ -1006,18 +1007,23 @@
     }
     @media (max-width:$mobileSmall){
       display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(toRem(140), 1fr));
+      grid-template-columns: 1fr 1fr;
     }
     gap: toRem(10);
   }
   // .about-brands__item
   &__item {
-    aspect-ratio: 1/1;
     border: toRem(1) solid $mainColor;
     padding: toRem(25);
     @media (min-width:$mobileSmall){
+      aspect-ratio: 1/1;
       width: 100%;
       max-width: toRem(162);
+    }
+    @media (max-width:$mobileSmall){
+       img {
+        aspect-ratio: 1/1;
+       }
     }
   }
 }
@@ -1247,3 +1253,108 @@
 	}
 }
 
+
+
+
+// -------------- CONTACTS PAGE  ----------------------------------
+.contacts {
+  @extend %pddSection;
+  // .contacts__container
+  &__container {
+  }
+  // .contacts__buttons
+  &__buttons {
+    font-style: normal;
+    display: grid;
+    @include adaptiveValue("gap", 19, 10,0,1920,480.98);
+    @include adaptiveValue("margin-bottom", 100, 70,0,1920,1366.98);
+    @media (min-width:toEm(750.98)){
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  // .contacts__link
+  &__link {
+    font-weight: 700;
+    @include adaptiveValue("height", 147, 80,0,1920,1366.98);
+    @include adaptiveValue("font-size", 38, 24,2,1920,1366.98);
+    @include adaptiveValue("font-size", 24, 20,3,1366.98,480.98);
+    @media (any-hover: hover){
+      &:hover{
+        svg {
+          transform: unset;
+          path {
+            fill: #fff;
+          }
+          stroke: unset;
+        }
+      }
+    }
+    svg {
+      height: auto;
+      @include adaptiveValue("width", 45, 28,0,1920,1366.98);
+      position: relative;
+      z-index: 2;
+      path {
+        transition: fill .3s ease;
+      }
+    }
+  }
+  // .contacts__title
+  &__title {
+    text-align: center;
+    @include adaptiveValue("margin-bottom", 40, 20,0,1920,1366.98);
+  }
+  // .contacts__map
+  &__map {
+  }
+}
+
+
+
+// -------------- NOT-FOUND PAGE  ----------------------------------
+.not-found {
+  @extend %pddTopHero;
+  // .not-found__container
+  &__container {
+    @include adaptiveValue("padding-top", 100, 50,0,1920,1366.98);
+    @include adaptiveValue("padding-bottom", 100, 60,0,1920,1366.98);
+  }
+	// .not-found__body
+	&__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    @include adaptiveValue("max-width", 1024, 700,0,1920,1366.98);
+    margin: 0 auto;
+	}
+  // .not-found__title
+  &__title {
+    font-weight: 700;
+    color: $blueAcc;
+    @include adaptiveValue("font-size", 64, 32,0,1920,1366.98);
+    margin-bottom: toRem(10);
+  }
+  // .not-found__subp-title
+  &__subp-title {
+    @include adaptiveValue("font-size", 36, 23,0,1920,1366.98);
+    @include adaptiveValue("margin-bottom", 40,20,0,1920,1366.98);
+  }
+  // .not-found__block
+  &__block {
+    border: toRem(1) solid $mainColor;
+    width: 100%;
+    @include adaptiveValue("margin-bottom", 40,20,0,1920,1366.98);
+  }
+	// .not-found__txt
+	&__txt {
+    font-weight: 700;
+    color: $blueAcc;
+    @include adaptiveValue("font-size", 398, 260,2,1920,1366.98);
+    @include adaptiveValue("font-size", 260, 140,3,1366.98,480.98);
+	}
+  // .not-found__link
+  &__link {
+    @include adaptiveValue("max-width", 560, 400,0,1920,1366.98);
+  }
+}

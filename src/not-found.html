@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/_head.htm',{
+	"title":"Star Brands | 404"
+	})
+	<body>
+		<div class="wrapper pg-not-found">
+			@@include('html/_header.htm',{})
+			<main class="page">
+				<section class="not-found">
+					<div class="not-found__container">
+						<div class="not-found__body">
+							<h2 class="not-found__title">Упс, щось пішло не так</h2>
+							<p class="not-found__subp-title">Нажаль, такої сторінки не існує</p>
+							<div class="not-found__block">
+								<p class="not-found__txt">
+									404
+								</p>
+							</div>
+							<a href="index.html" class="not-found__link btn btn--02">
+								<span>Повернутись на головну</span>
+							</a>
+						</div>
+					</div>
+				</section>
+			</main>
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>

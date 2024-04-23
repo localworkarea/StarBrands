@@ -213,6 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
+    // == страница Вакансии - перенос информации в попап-форму ==================================
     const popupButtons = document.querySelectorAll('[data-popup="#popup-vacancy"]');
     if (popupButtons.length > 0) {
         popupButtons.forEach(button => {
@@ -232,9 +233,10 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         });
     }
+    // ==========================================================================================
 
 
-
+    // == страница Новости - перенос информации из карточки в попап ============================
     const popupButtonsNews = document.querySelectorAll('[data-popup="#popup-news"]');
     const popupContent = document.querySelector('.popup-news__body');
 
@@ -247,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-
+    // ==========================================================================================
 
 
 });

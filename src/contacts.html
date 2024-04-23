@@ -7,6 +7,51 @@
 		<div class="wrapper pg-contacts">
 			@@include('html/_header.htm',{})
 			<main class="page">
+				<section class="contacts__hero">
+					<div class="head-block">
+						<img class="head-block__bg ibg" src="@img/head-bg-01.jpg" width="1920" height="414" alt="бекграунд">
+						<div class="head-block__container">
+							<ol itemscope itemtype="https://schema.org/BreadcrumbList" class="head-block__list">
+								<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="head-block__item">
+									<a itemprop="item"  href="index.html">
+										<span itemprop="name">Головна</span>
+									</a>
+									<meta itemprop="position" content="1" />
+								</li>
+								<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="head-block__item">
+									<span itemprop="name">Контакти</span>
+									<meta itemprop="position" content="2" />
+								</li>
+							</ol>
+							<h1 class="title-head">
+								Контакти
+							</h1>
+						</div>
+					</div>
+				</section>
+				<section class="contacts bg-blue-light">
+					<div class="contacts__container">
+						<address class="contacts__buttons">
+							<a href="tel:+380800301173" class="contacts__link btn btn--01">
+								<svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M0.333984 0.334072H12.2289L14.9907 11.3815L7.90741 17.4529C10.4101 22.5846 14.4101 27.4142 20.5151 30.4413L26.5875 23.0026L37.6673 25.7725V37.6674H35.6673C29.6778 37.6674 24.5888 36.5914 20.2939 34.7443C11.7198 31.0567 6.53599 24.4098 3.62508 17.7154M24.3934 32.0156C27.1047 32.894 30.1805 33.4647 33.6673 33.6227V28.8956L28.0805 27.4989L24.3934 32.0156ZM6.29907 13.5632L10.5106 9.95332L9.10577 4.33407H4.40497C4.59258 7.05963 5.16666 10.2773 6.29907 13.5632ZM0.333984 0.334072V2.33407ZM0.333984 2.33407C0.333984 6.5368 1.21413 12.1744 3.62508 17.7154Z" fill="#FFD600"/>
+								</svg>
+								<span>0 800 30 11 73</span>
+							</a>
+							<a href="mailto:office@starbrands.com" class="contacts__link btn btn--01">
+								<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M44 11H6V39H44V11ZM2 7V43H48V7H2Z" fill="#FFD600"/>
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M3.00781 17.7365L4.99237 14.2635L25.0001 25.6965L45.0078 14.2635L46.9924 17.7365L25.0001 30.3035L3.00781 17.7365Z" fill="#FFD600"/>
+								</svg>
+								<span>office@starbrands.com</span>
+							</a>
+						</address>
+						<h2 class="contacts__title title-hero">Наші філіі по країні</h2>
+						<div class="contacts__map">
+							<img class="ibg ibg--contain" src="@img/contacts/map-of-ua.svg" width="1720" height="1147" alt="мапа України з відмічиними областями Житомирської, Черкаської областей, а також Київ">
+						</div>
+					</div>
+				</section>
 			</main>
 			@@include('html/_footer.htm',{})
 		</div>
