@@ -252,8 +252,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // ==========================================================================================
 
 
-});
+    function setupChartWheelHandler() {
+        var chartdiv = document.getElementById("chartdiv");
+        if (chartdiv) {
+                chartdiv.addEventListener("wheel", function(event) {
+                    event.stopPropagation();
+                });
+        }
+    }
+    
+    setupChartWheelHandler();
 
+    
+});
 
 
 // Документация по карте AmChart 4 :

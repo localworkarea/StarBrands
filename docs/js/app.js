@@ -6055,6 +6055,13 @@
                     popupContent.innerHTML = newsBlockContent;
                 }));
             }));
+            function setupChartWheelHandler() {
+                var chartdiv = document.getElementById("chartdiv");
+                if (chartdiv) chartdiv.addEventListener("wheel", (function(event) {
+                    event.stopPropagation();
+                }));
+            }
+            setupChartWheelHandler();
         }));
         window["FLS"] = false;
         isWebp();

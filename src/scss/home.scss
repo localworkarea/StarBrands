@@ -894,21 +894,36 @@
   // .about-values__container
   &__container {
   }
-	// .about-values__title-main
-	&__title-main {
+  // .about-values__title-main
+  &__title-main {
     text-align: center;
     &:not(:last-child) {
       @include adaptiveValue("margin-bottom", 40, 20,0,1920,1366.98);
     }
-	}
+  }
   // .about-values__list
   &__list {
     display: grid;
     gap: toRem(20);
-    @media (min-width:toEm(935.98)){
+    @include adaptiveValue("gap", 20, 10,0,1920,1100.98);
+    @media (min-width:toEm(1100.98)){
       grid-template-columns: repeat(5,1fr);
       position: relative;
-      &::before {
+    }
+    @media (max-width: toEm(1100.98)) and (min-width:toEm(820.98)) {
+      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: repeat(2,1fr);
+    }
+    @media (max-width: toEm(820.98)) and (min-width:$mobileSmall){
+      grid-template-columns: repeat(2,1fr);
+      grid-template-rows: repeat(3,1fr);
+    }
+    @media (max-width:$mobileSmall){
+       grid-template-columns: 1fr;
+       grid-template-rows: repeat(5,1fr); 
+    }
+    &::before {
+      @media (min-width:toEm(1100.98)){
         content: '';
         position: absolute;
         z-index: 0;
@@ -920,63 +935,80 @@
         background-color: $mainColor;
       }
     }
-    @media (max-width: toEm(935.98)) and (min-width: toEm(700.98)) {
-        grid-template-columns: repeat(4,1fr);
-        grid-template-rows: 1fr 1fr;
-    }
-    @media (max-width: toEm(935.98)) {
-    }
-    @media (max-width: toEm(700.98)){
-      grid-template-columns: repeat(2,1fr);
-      grid-template-rows: 1fr 1fr 1fr;
-    }
-    @media (max-width: toEm(340.98)){
-        gap: toRem(10) !important;
-    }
   }
-
   // .about-values__item
   &__item {
+    perspective: toRem(1000);
+    &:hover {
+      .item-values {
+        transform: rotateY(180deg);
+      }
+    }
+    @media (min-width:toEm(1100.98)){
+      aspect-ratio: 1/1;
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: toEm(1100.98)) and (min-width:toEm(700.98)) {
+        aspect-ratio: 2/1.5;
+    }
+    @media (max-width: toEm(700.98)) and (min-width:$mobileSmall) {
+      aspect-ratio: 1/1;
+    }
+    @media (max-width:$mobileSmall){
+      aspect-ratio: 2/1;
+    }
+  }
+}
 
-    background-color: $yellow;
+
+.item-values {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform .8s ease;
+  transform-style: preserve-3d;
+  
+  &__front,
+  &__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+
     border: toRem(1) solid $mainColor;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: toRem(15);
-    @include adaptiveValue("row-gap", 48, 18,0,1920,1366.98);
-    // @include adaptiveValue("min-height", 328, 163,2,1920,935.98);
-    @media (min-width:toEm(935.98)){
-      aspect-ratio: 1/1;
-      position: relative;
-      z-index: 1;
-    }
-    @media (max-width:$mobileSmall){
-      aspect-ratio: 1/1;
-    }
-    &:last-child {
-      @media (max-width: toEm(935.98)){
-        grid-column: 1/5;
-        display: grid;
-        grid-template-columns: auto auto;
-        align-items: center;
-        column-gap: toRem(15);
-      }
-      @media (max-width: toEm(700.98)){
-        grid-column: 1/3;
-      }
-      @media (max-width:$mobileSmall){
-        aspect-ratio: unset;
-      }
-    }
   }
-  // .about-values__ic
+	// .item-values__front
+	&__front {
+    background-color: $yellow;
+    @include adaptiveValue("row-gap", 48, 18,0,1920,1366.98);
+	}
+	// .item-values__back
+	&__back {
+    background-color:$blueLight;
+    transform: rotateY(180deg);
+    p {
+      text-align: center;
+      color:#FFF;
+      @include adaptiveValue("font-size", 20, 14,0,1920,1280.98);
+      font-weight: 700;
+      @media (max-width:$mobileSmall){
+         font-size: toRem(16) !important; 
+      }
+    }
+	}
+  // .item-values__ic
   &__ic {
     @include adaptiveValue("max-height", 100, 50,0,1920,480.98);
-    
   }
-  // .about-values__title
+  // .item-values__title
   &__title {
     text-align: center;
     font-weight: 700;

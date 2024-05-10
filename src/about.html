@@ -114,34 +114,79 @@
 						</h2>
 						<ul class="about-values__list">
 							<li class="about-values__item">
-								<img class="about-values__ic ibg ibg--contain" src="@img/icons/about-increase.svg" width="123" height="100" alt="Image">
-								<p class="about-values__title">
-									Розвиток
-								</p>
+								<div class="item-values">
+									<div class="item-values__front">
+										<img class="item-values__ic ibg ibg--contain" src="@img/icons/about-increase.svg" width="123" height="100" alt="Image">
+										<p class="item-values__title">
+											Розвиток
+										</p>
+									</div>
+									<div class="item-values__back">
+										<p>
+											Основою розвитку нашої Компанії ми вважаємо пошук нових сфер та досягнення зіркових результатів у них. Ми поділяємо прагнення кожного співробітника до навчання, отримання нового досвіду та розвитку особистості.
+										</p>
+									</div>
+								</div>
 							</li>
 							<li class="about-values__item">
-								<img class="about-values__ic ibg ibg--contain" src="@img/icons/about-team.svg" width="123" height="100" alt="Image">
-								<p class="about-values__title">
-									Командність
-								</p>
+								<div class="item-values">
+									<div class="item-values__front">
+										<img class="item-values__ic ibg ibg--contain" src="@img/icons/about-team.svg" width="123" height="100" alt="Image">
+										<p class="item-values__title">
+											Командність
+										</p>
+									</div>
+									<div class="item-values__back">
+										<p>
+											«Ми віримо, що результат командної роботи завжди вище за персональні показники. Все, що ми робимо, ми створюємо разом!»
+										</p>
+									</div>
+								</div>
 							</li>
 							<li class="about-values__item">
-								<img class="about-values__ic ibg ibg--contain" src="@img/icons/about-leader.svg" width="123" height="100" alt="Image">
-								<p class="about-values__title">
-									Лідерство
-								</p>
+								<div class="item-values">
+									<div class="item-values__front">
+										<img class="item-values__ic ibg ibg--contain" src="@img/icons/about-leader.svg" width="123" height="100" alt="Image">
+										<p class="item-values__title">
+											Лідерство
+										</p>
+									</div>
+									<div class="item-values__back">
+										<p>
+											Ми створюємо та розвиваємо Бренди з метою зробити їх справжніми зірками. Наше завдання як Лідера-прийняти відповідальність за результат та зберегти потенціал розвитку людських ресурсів Компанії.
+										</p>
+									</div>
+								</div>
 							</li>
 							<li class="about-values__item">
-								<img class="about-values__ic ibg ibg--contain" src="@img/icons/about-respect.svg" width="123" height="100" alt="Image">
-								<p class="about-values__title">
-									Довіра<br> та повага
-								</p>
+								<div class="item-values">
+									<div class="item-values__front">
+										<img class="item-values__ic ibg ibg--contain" src="@img/icons/about-respect.svg" width="123" height="100" alt="Image">
+										<p class="item-values__title">
+											Довіра<br> та повага
+										</p>
+									</div>
+									<div class="item-values__back">
+										<p>
+											Ми поважаємо кожного в нашій Компанії, тому що всі ми працюємо для досягнення спільних цілей. Для нас важливо вибудовувати професійну взаємодію, довгострокові та чесні взаємовідносини всередині Компанії, з партнерами та споживачами.
+										</p>
+									</div>
+								</div>
 							</li>
 							<li class="about-values__item">
-								<img class="about-values__ic ibg ibg--contain" src="@img/icons/about-efficiency.svg" width="123" height="100" alt="Image">
-								<p class="about-values__title">
-									Максимальна<br> ефективність
-								</p>
+								<div class="item-values">
+									<div class="item-values__front">
+										<img class="item-values__ic ibg ibg--contain" src="@img/icons/about-efficiency.svg" width="123" height="100" alt="Image">
+										<p class="item-values__title">
+											Максимальна<br> ефективність
+										</p>
+									</div>
+									<div class="item-values__back">
+										<p>
+											Ми працюємо за формулою, де максимальна ефективність трактується як досягнення та перевиконання поставлених цілей при оптимальному використанні ресурсів.
+										</p>
+									</div>
+								</div>
 							</li>
 						</ul>
 					</div>
@@ -245,7 +290,7 @@
 							<span>Ми у світі:</span> шукаємо та реалізовуємо нові можливості!
 						</h2>
 						<div class="about-map__body">
-							<div id="chartdiv"></div>
+							<div id="chartdiv" ></div>
 							<div class="about-map__list">
 								<p class="about-map__subtitle">На даний момент ми вже представлені в таких країнах:</p>
 								<ul class="about-map__items">
@@ -327,26 +372,24 @@
 								</ul>
 							</div>
 						</div>
-
 					</div>
 				</section>
 			</main>
 			@@include('html/_footer.htm',{})
 		</div>
-		@@include('html/_popup-vacancy.htm',{})
-		@@include('html/_popup-msg.htm',{})
 		<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 		<script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
 		<script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
 		<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-
-
+		
 		<script>
 				if (window.matchMedia("(min-width: 600px)").matches) {
 						am4core.useTheme(am4themes_animated);
 				
 						var chart = am4core.create("chartdiv", am4maps.MapChart);
 				
+						chart.maxZoomLevel = 1;
+						
 						chart.geodata = am4geodata_worldLow;
 				
 						chart.projection = new am4maps.projections.Miller();
@@ -473,7 +516,7 @@
 							},
 						];
 						polygonTemplate.propertyFields.fill = "fill";
-				}
+					}
 		</script>
 		@@include('html/_js.htm',{})
 	</body>
